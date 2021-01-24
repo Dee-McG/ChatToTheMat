@@ -180,7 +180,8 @@ Implementation:
 
 ### **The Skeleton Plane**
 #### Wireframes
-
+Home Page:<br>
+![Home](readme_images/wireframes/home.jpg)
 
 #### Database Design
 
