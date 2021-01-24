@@ -4,6 +4,8 @@
     font-size: 10px;
 }
 
+/* Generic CSS */
+
 body {
     background-color: rgb(27, 27, 27);
     font-family: "Roboto", sans-serif;
@@ -12,17 +14,88 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: "Orbitron", sans-serif;
     font-weight: bold;
-}
-
-#main-heading {
-    font-size: 4rem;
-    margin-top: 1rem;
     background: -webkit-linear-gradient(#c80000, #c88f00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-#main-text {
+#main-heading {
+    font-size: 3rem;
+    margin-top: 1rem;
+}
+
+a.anchors {
+    text-decoration: none;
+    color:rgb(255, 145, 77);
+    font-size: 1.5rem;
+}
+
+a.anchors:hover {
+    text-decoration: underline;
+    color:rgb(226, 112, 41);
+}
+
+.main-text {
     font-size: 1.5rem;
     color: rgb(238, 238, 238);
+}
+
+/* Navigation */
+
+header {
+    background-color: rgb(53, 53, 53);
+}
+
+#logo {
+    height: 100px;
+    width: 200px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: rgb(255, 145, 77);
+}
+
+span.navbar-toggler-icon {
+    height: 3rem;
+    width: 3rem;
+}
+
+/* Footer */
+
+footer {
+    background-color: rgb(53, 53, 53);
+    color:rgb(238, 238, 238);
+    bottom: 0;
+    width: 100%;
+    flex: 1;
+    position: fixed;
+}
+
+footer,p {
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 5px 0 5px 0;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 370px) {
+    #main-heading {
+        font-size: 4rem;
+        margin-top: 1rem;
+    }
+
+    span.navbar-toggler-icon {
+        height: 4rem;
+        width: 4rem;
+    }
 }

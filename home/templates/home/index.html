@@ -2,58 +2,52 @@
 {% load static %}
 
 {% block page_header %}
-    <h1 class="text-center" id="main-heading">Welcome to Chat To The Mat!</h1>
+    <h1 class="text-center" id="main-heading">Chat To The Mat</h1>
+    <hr class="col-6">
 {% endblock %}
 
 {% block content %}
     <div class="container">
-        <p class="text-center" id="main-text">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-            "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+        <div class="row justify-content-sm-center">
+            <div class="col-sm-12 col-md-10">
+                <p class="main-text text-justify">
+                    Chat to the Mat is an online chat service that was created during Covid-19 as a means to build meaningful online 
+                    friendships in a time where our normal social interactions has suffered because of the pandemic. Maybe you just 
+                    want some general chit-chat? To find a new hobby? To find a long-term penpal? Our chat rooms are full of possibilities.
+                </p>
 
+                <p class="main-text text-justify">
+                    If you are serious about making new friends, engaging in great conversations with a diverse group of people. Why 
+                    not give our chat rooms a try? Are you ready to get your chat on? 
+                    <a class="anchors" href="{% url 'account_signup' %}">Sign up here.</a>
+                </p>
+            </div>
+            <hr class="col-6">
 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt eleifend quam in aliquam. Mauris
-            lobortis massa velit, eu elementum dolor maximus lobortis. Nam urna ligula, dignissim non vulputate eget, ultrices sed nunc. 
-            Fusce venenatis
-            sem quis diam ornare,
-            in elementum felis pulvinar. In hac habitasse platea dictumst. Pellentesque quis velit suscipit, fringilla augue
-            vitae, accumsan quam.
-            Vivamus massa est, ullamcorper quis magna a, blandit vestibulum sapien. Nam rhoncus turpis non massa ultrices, ut
-            scelerisque risus facilisis.
-            Vivamus imperdiet quis massa ac rhoncus. Quisque aliquet hendrerit fringilla. Phasellus consequat consequat dapibus.
+            <div class="col-sm-12 col-md-10">
+                <h2 class="text-center">Our Promise To You</h2>
+                <p class="main-text text-justify">
+                    We promise to do everything we can to ensure a friendly user experience and atmosphere, this includes ensuring that 
+                    all members verify via email before they can use our site and agreeing to our terms of service. Any members who are 
+                    found to be breaking our terms of service will be banned without warning. If you are a victim of any kind of bullying,
+                    harrassment or racism, contact us immediately and it will be addressed as soon as possible. Our staff moderate all 
+                    channels but sometimes messages can slip through the cracks, if you witness any behaviour against the terms of service,
+                    just use the contact form provided and our staff will resolve the issue as quickly as possible.
+                </p>
+            </div>
+            <hr class="col-6">
 
-            Fusce non quam sit amet velit condimentum suscipit. Phasellus ac imperdiet odio. Mauris sodales mollis augue, vitae
-            suscipit sem tristique et.
-            Nulla facilisi. Aenean interdum venenatis mattis. Nulla consequat tempor pellentesque. Suspendisse lacus ante,
-            sollicitudin viverra leo id,
-            lobortis faucibus eros. Pellentesque malesuada nunc at diam finibus, non eleifend justo dignissim. Etiam blandit
-            rutrum felis. Mauris sit amet
-            tristique nisi, vitae congue nisl.
-
-            Vivamus magna ligula, sollicitudin elementum augue non, pellentesque elementum metus. Maecenas suscipit dignissim
-            ex, ut tempus magna euismod
-            ut. Etiam sodales nunc est, rutrum iaculis libero suscipit eu. Sed eu ornare ligula. Praesent dapibus sem et turpis
-            imperdiet, eget placerat
-            orci tristique. Aliquam ut ultricies enim. Integer efficitur tortor diam, non tincidunt lacus accumsan at. Nulla
-            facilisi. Class aptent taciti
-            sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin scelerisque rutrum quam, ut tempus
-            ligula tincidunt id.
-
-            Morbi quis elit id arcu aliquam pulvinar. Mauris sollicitudin aliquam nibh eu gravida. Integer bibendum odio id mi
-            venenatis porta in non est.
-            Donec commodo vulputate elit quis sollicitudin. In nec pharetra nisi, ac tincidunt nunc. Aenean fermentum ipsum quis
-            leo fermentum facilisis.
-            Proin elementum ut dui non ornare. Duis molestie tristique malesuada. Vestibulum scelerisque ullamcorper elit, sed
-            venenatis tellus tincidunt vel.
-
-            Praesent vehicula eu lorem a mattis. In sagittis turpis quis odio pretium condimentum. Morbi tempor non lorem ut
-            tempus. Morbi laoreet pharetra
-            tellus id vulputate. Pellentesque a felis sit amet quam iaculis consequat. Suspendisse sit amet elementum augue.
-            Nulla et lacinia libero. In nisi
-            libero, facilisis vel nisl id, aliquet malesuada mauris. Nam facilisis rhoncus dui, in scelerisque libero semper ut.
-            Donec lobortis id justo eget
-            elementum. Donec porta magna blandit, lacinia nunc a, dignissim sem. Integer laoreet orci eu quam porta, eu sagittis
-            lorem volutpat. Donec in
-            lectus ante. Pellentesque aliquet lectus augue.
-        </p>
+            <div class="col-sm-12 col-md-10">
+                <h2 class="text-center">Premium Subscription Services</h2>
+                <p class="main-text text-justify">
+                    With our Gold Subscription Plan you can gain access to our Gold Chat rooms, an area only available to our 
+                    premium members. This will grant you access to 5+ new chat rooms, unlock private messaging so you can have one 
+                    on one chats with other premium members, as well as customising your own personal profile photo to stand out from 
+                    the rest! 
+                </p>
+                <br>
+                <p class="text-center main-text">SUBSCRIPTION SALE NOW ON! All this for ONLY €4.99 a year.</p>
+            </div>
+        </div>
     </div>
 {% endblock %}

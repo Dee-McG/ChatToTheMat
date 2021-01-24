@@ -361,7 +361,7 @@ for your own idea. - Definition from [Github Docs](https://docs.github.com/en/fr
 
 ### Code
 
-The css gradient for the #main-heading was taken from [CSS-TRICKS](https://css-tricks.com/snippets/css/gradient-text/).
+The css gradient for the headings was taken from [CSS-TRICKS](https://css-tricks.com/snippets/css/gradient-text/).
 
 ### Acknowledgements
 
