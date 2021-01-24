@@ -96,6 +96,15 @@ Acceptance Criteria:
 
 Implementation:
 
+The Home Page will contain the main website title of "Chat To The Mat". 
+
+It will contain information about the site's general purpose to make it immediately evident to a visitor what the site is intended for.
+
+A section for "Our Promise To You", which will contain information on how we will try to ensure a safe, friendly evironment for 
+our users.
+
+Information on our premium subscription services will be included in the last section to make users aware of what features are offered with paid membership.
+
 User Story:
 
 > As a user, I want to easily navigate the site so that I can find content quickly with ease on any device.
@@ -353,7 +362,7 @@ for your own idea. - Definition from [Github Docs](https://docs.github.com/en/fr
 1. Navigate to the GitHub Repository you want to fork.
 1. On the top right of the page under the header, click the fork button.
     
-    ![Fork](readme_images/fork.JPG)
+    ![Fork](readme_images/fork.jpg)
 1. This will create a duplicate of the full project in your GitHub Repository.
 
 ****
