@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'chat_rooms',
+
+        # Other
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +80,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
