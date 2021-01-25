@@ -117,6 +117,15 @@ Acceptance Criteria:
 
 Implementation:
 
+A navigation menu will be implemented to enable the user to navigate through the site. On a mobile device this will be collapsible and 
+implemented using bootstrap. On a desktop or tablet device, the navigation will be positioned at the top right of the header element.
+
+'Home' and 'Contact' navigation items will be displayed to users regardless of logged in/out status.
+
+When a user is not logged in, 'Sign In' and 'Sign Up' navigation items will be displayed.
+
+When a user is logged in, 'Profile', 'Chat Rooms' and 'Sign Out' navigation items will be displayed.
+
 User Story:
 
 > As a user, I want to be able to chat with other users in the chatroom in a safe and moderated environment.
