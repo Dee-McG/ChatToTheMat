@@ -1,6 +1,6 @@
 # Chat To The Mat
 Chat To The Mat is an online chat service where users can create online friendships. A premium subscription service 
-is available to users that allows access to our 'Gold Rooms' and enables the private messaging functionality.
+is available to users that allows access to our 'Gold Rooms' and enables the private messaging functionality. The live website can be found [here](https://chat-to-the-mat.herokuapp.com/).
 
 ## Table of Contents
 * [User Experience Design (UX)](#User-Experience-Design)
@@ -156,6 +156,20 @@ Acceptance Criteria:
 
 Implementation:
 
+A contact page will be implemented with a form to allow users to contact staff. The form should clearly display if submission was successful or failed to send. 
+
+This will contain a drop down asking for the reason of contact. The options will be:
+* Breach of TOS
+* General Query
+* Technical Issue
+* Subscription Query
+
+Other fields will be:
+* Name (Username or Name)
+* Email
+* Comments
+
+
 User Story:
 
 > As a user, I want to be in control of my account information and have the option to update my personal information or delete my account.
@@ -199,7 +213,10 @@ Implementation:
 ### **The Skeleton Plane**
 #### Wireframes
 Home Page:<br>
-![Home](readme_images/wireframes/home.jpg)
+![Home](readme_images/wireframes/home.jpg)<br>
+
+Contct Page:<br>
+![Contact](readme_images/wireframes/contact.jpg)
 
 #### Database Design
 
