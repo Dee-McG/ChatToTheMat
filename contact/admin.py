@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Contact
 
 # Register your models here.
-class CategoryAdmin(admin.ModelAdmin):
+class ContactAdmin(admin.ModelAdmin):
     list_display = (
         'contact_reason',
         'name',
@@ -11,4 +11,4 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(Contact, CategoryAdmin)
+admin.site.register(Contact, ContactAdmin)
