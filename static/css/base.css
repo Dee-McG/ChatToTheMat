@@ -92,12 +92,36 @@ footer,p {
 
 label {
     color:rgb(238, 238, 238);
+    font-size: 1.5rem;
 }
 
 .submit-btn {
     color:  rgb(255, 145, 77);
     background-color: rgb(238, 238, 238);
     font-weight: bolder;
+}
+
+#form-styling {
+    padding: 1rem;
+    margin-top: 1rem;
+    background: #353535;
+    border-radius: 5px;  
+}
+
+/* Toasts */
+.message-container {
+    position: fixed;
+    top: 153px;
+    right: 15px;
+    z-index: 999999999;
+}
+
+.custom-tost {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
 }
 
 /* Media Queries */
