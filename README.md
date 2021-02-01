@@ -177,8 +177,22 @@ User Story:
 Acceptance Criteria:
 * A profile page is created for users where they can update their personal information.
 * Users should have the functionality to delete their own account.
+* If the profile does not belong to the user, they should not be able to update the profile or delete the account.
 
 Implementation:
+
+A profile page will be implemented that allows the user to update their information. The following fields will be available:
+* Name
+* Location
+* Bio
+
+These fields are optional if the user wants to update them. Once updated they will display to other users who view their profile.
+If the user is logged in and it is their own profile (accessed via the profile tab), a form will be displayed to allow the user 
+to update their profile. There will also be a button displayed to allow the user to delete their profile. This deletion will be 
+permanent so a warning must be displayed to the user that allows them to either cancel or delete the account.
+
+Users can view ther users profiles by clicking the users name on the chat room application. They should not have access to update 
+or delete that users profile.
 
 User Story:
 
@@ -216,7 +230,13 @@ Home Page:<br>
 ![Home](readme_images/wireframes/home.jpg)<br>
 
 Contct Page:<br>
-![Contact](readme_images/wireframes/contact.jpg)
+![Contact](readme_images/wireframes/contact.jpg)<br>
+
+Profile:<br>
+Users own profile:<br>
+![User Profile](readme_images/wireframes/profile_user.jpg)<br>
+Profile to other users:<br>
+![User Profile](readme_images/wireframes/profile_non_user.jpg)<br>
 
 #### Database Design
 
