@@ -1,10 +1,9 @@
-{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name %}Hello from {{ site_name }}!{% endblocktrans %}
-{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name %}Hello from Chat To The Mat!{% endblocktrans %}
+{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name %}Hello from {{ site_name }}!{% endblocktrans %}	{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name %}Hello from Chat To The Mat!{% endblocktrans %}
 
-{% block content %}{% endblock %}
 
-{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Thank you for using {{ site_name }}!
-{{ site_domain }}{% endblocktrans %}
-{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Thank you for using Chat To The Mat!
-Chat To The Mat{% endblocktrans %}
+{% block content %}{% endblock %}	{% block content %}{% endblock %}
+
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Thank you for using {{ site_name }}!	{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Thank you for using Chat To The Mat!
+{{ site_domain }}{% endblocktrans %}	Chat To The Mat{% endblocktrans %}
 {% endautoescape %}
