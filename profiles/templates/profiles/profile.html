@@ -8,6 +8,52 @@
 
 {% block content %}
     <main class="container">
+        <div class="row no-gutters">
+            <!-- Display Users Profile Information -->
+            <div class="col-10 offset-1 col-md-6 offset-md-3">
+                <h2 class="text-center">Hi {{ request.user.username }}</h2>
+            </div>
 
+            <div class="col-s-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2" id="form-styling">
+                <h3>Name: </h3>
+                <p class="main-text">{{ profile.name }}</p>
+                <hr>
+                <h3>Location: </h3>
+                <p class="main-text">{{ profile.location }}</p>
+                <hr>
+                <h3>Bio: </h3>
+                <p class="main-text">{{ profile.bio }}</p>
+                <hr>
+                <!-- Edit Profile and Delete Profile -->
+                <div class="text-center">
+                    <button class="submit-btn"><a href="{% url 'edit_profile' %}" class="anchors">Edit Profile</a></button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="submit-btn" data-toggle="modal" data-target="#delete_modal">
+                        <a class="anchors">Delete Profile</a>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal" id="delete_modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal_label">Warning</h5>
+                        <button type="button" class="close link-danger" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-danger">
+                        This action is permanent. Are you sure you want to delete your account?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
+                        <button type="button" class="close text-danger">
+                            <a href="{% url 'delete_profile' %}" class="anchors">Delete Account<a>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 {% endblock %}
