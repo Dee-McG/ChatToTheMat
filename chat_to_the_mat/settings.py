@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'home',
     'chat_rooms',
     'contact',
+    'profiles',
 
     # Other
     'crispy_forms',
