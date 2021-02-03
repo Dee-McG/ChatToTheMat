@@ -6,8 +6,8 @@
     <div class="col-12">
         <div id="chat_messages">
             {% for chat in chat %}
-                <p>{{ chat.time }}</p> 
-                <p class="main-text">{{ chat.user }}: {{ chat.message }}</p>
+                <p class="chat-date">{{ chat.time }}</p> 
+                <p class="chat-text"><span class="chat-text username">{{ chat.user }}</span>: {{ chat.message }}</p>
                 <hr>
             {% endfor %}
         </div>

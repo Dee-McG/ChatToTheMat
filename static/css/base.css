@@ -121,6 +121,25 @@ label {
     height: 2px;
 }
 
+/* Chat Rooms */
+#chat_messages {
+    overflow-y: scroll;
+    height: 60vh;
+}
+
+.chat-date {
+    font-size: 1rem;
+}
+
+.chat-text {
+    font-size: 1.5rem;
+    padding: 0;
+}
+
+.username {
+    color: rgb(255, 145, 77)
+}
+
 /* Media Queries */
 
 @media only screen and (min-width: 370px) {

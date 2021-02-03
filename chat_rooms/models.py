@@ -9,7 +9,7 @@ class Chat(models.Model):
     """
     user = models.CharField(max_length=80,
                             null=True, blank=True)
-    message = models.CharField(max_length=500,
+    message = models.CharField(max_length=1500,
                             null=False, blank=False)
     time = models.DateTimeField(max_length=80,
                             null=True, blank=True)
