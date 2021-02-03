@@ -3,8 +3,28 @@
 
 {% block content %}
 
-    <main class="container">
+    <main class="container" id="chat_container">
         {% include 'includes/channels/general_chat.html' %}
     </main>
     
+{% endblock %}
+
+{% block postloadjs %}
+<script type="text/javascript">
+    $(document).ready(function()
+{
+    function refresh()
+    {
+        var div = $('#chat_messages'),
+            divHtml = div.html();
+
+        div.html(divHtml);
+    }
+
+    setInterval(function()
+    {
+        refresh()
+    }, 5000); //300000 is 5minutes in ms
+})
+</script>
 {% endblock %}

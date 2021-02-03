@@ -4,12 +4,14 @@
 
 <div class="row" id="form-styling">
     <div class="col-12">
-        {% for chat in chat %}
-            <p>{{ chat.time }}</p> 
-            <p class="main-text">{{ chat.user.username }}: {{ chat.message }}</p>
-            <hr>
-        {% endfor %}
-        <form method="POST" action="{% url 'chat_room' %}" class="form mb-2" enctype="multipart/form-data">
+        <div id="chat_messages">
+            {% for chat in chat %}
+                <p>{{ chat.time }}</p> 
+                <p class="main-text">{{ chat.user.username }}: {{ chat.message }}</p>
+                <hr>
+            {% endfor %}
+        </div>
+        <form method="POST" action="{% url 'chat_home' %}" class="form mb-2" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
                 <input type="hidden" id="{{ request.user.username }}" name="{{ request.user.id }}" value="{{ request.user.username }}"> 

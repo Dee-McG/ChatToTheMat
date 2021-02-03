@@ -18,16 +18,6 @@ def chat_home(request):
         'chat': chat,
     }
 
-    return render(request, 'chat_rooms/chat_home.html', context)
-
-
-def chat_room(request):
-    chat = Chat.objects.all()
-    
-    context = {
-        'chat': chat,
-    }
-
     try:
         user = get_object_or_404(Chat, user=request.user)
     except Exception as e:
