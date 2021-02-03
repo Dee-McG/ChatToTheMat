@@ -13,6 +13,8 @@
 <script type="text/javascript">
     $(document).ready(function()
 {
+    $("#chat_messages").scrollTop($("#chat_messages")[0].scrollHeight);
+    
     function refresh()
     {
         var div = $('#chat_messages'),
