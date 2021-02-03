@@ -11,6 +11,9 @@ from .models import User
 def profiles(request):
     """ A view to return the profile page """
 
+    if not request.user.is_authenticated:
+        return render(request, 'home/index.html')
+    
     try:
         profile = get_object_or_404(EditProfile, user=request.user)
 
@@ -21,11 +24,13 @@ def profiles(request):
         return render(request, 'profiles/profile.html', context)
     except Exception as e:
         return render(request, 'profiles/profile.html')
-
-
+        
 
 def edit_profile(request):
     """ A function to edit the users profile and render the edit_profile page """
+    if not request.user.is_authenticated:
+        return render(request, 'home/index.html')
+
     try:
         profile = get_object_or_404(EditProfile, user=request.user)
     except Exception as e:
@@ -51,6 +56,11 @@ def edit_profile(request):
     return render(request, 'profiles/edit_profile.html', context)
 
 def delete_profile(request):
+    """ Delete current logged in user"""
+    
+    if not request.user.is_authenticated:
+        return render(request, 'home/index.html')
+    
     user = get_object_or_404(User, pk=request.user.pk)
     try:
         user.delete()
