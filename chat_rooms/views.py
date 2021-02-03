@@ -19,7 +19,7 @@ def chat_home(request):
     }
 
     try:
-        user = get_object_or_404(Chat, user=request.user)
+        user = get_object_or_404(User, user=request.user)
     except Exception as e:
         user = Chat(user=request.user)
 

@@ -7,11 +7,12 @@ class Chat(models.Model):
     """
     A model to save and display chat messages
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.CharField(max_length=80,
+                            null=True, blank=True)
     message = models.CharField(max_length=500,
                             null=False, blank=False)
     time = models.DateTimeField(max_length=80,
                             null=True, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user
