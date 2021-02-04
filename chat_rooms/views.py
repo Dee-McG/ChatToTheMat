@@ -14,9 +14,12 @@ def chat_home(request):
         return render(request, 'home/index.html')
 
     chat = Chat.objects.all()
+
+    channel = 'general'
     
     context = {
         'chat': chat,
+        'channel': channel,
     }
 
     try:

@@ -47,7 +47,13 @@
                                 <a class="nav-link" href="{% url 'profiles' %}">Profile</a>
                             </li>
                             <li class="nav-item mr-2">
-                                <a class="nav-link" href="{% url 'chat_home' %}">Chat Rooms</a>
+                                <form class="dropdown">
+                                    <a class="nav-link dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="{% url 'chat_home' %}">Chat Rooms</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <a class="dropdown-item" href="{% url 'chat_home' %}">General Chat</a>
+                                        <a class="dropdown-item" href="{% url 'chat_home' %}">Sports Chat</a>
+                                    </div>
+                                </form>
                             </li>
                         {% else %}
                             <li class="nav-item mr-2">

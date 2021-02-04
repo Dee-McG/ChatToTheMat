@@ -4,7 +4,11 @@
 {% block content %}
 
     <main class="container" id="chat_container">
+    {% if channel == 'general' %}
         {% include 'includes/channels/general_chat.html' %}
+    {% elif channel == 'sports' %}
+        {% include 'includes/channels/sports_chat.html' %}
+    {% endif %}
     </main>
     
 {% endblock %}
