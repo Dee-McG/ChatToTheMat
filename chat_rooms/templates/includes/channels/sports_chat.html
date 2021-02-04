@@ -1,0 +1,22 @@
+{% block page_header %}
+    <h1 class="text-center" id="main-heading">Sports Chat</h1>
+{% endblock %}
+
+<div class="row" id="form-styling">
+    <div class="col-12">
+        <div id="chat_messages">
+            {% for chat in chat %}
+                <p class="chat-date">{{ chat.time }}</p> 
+                <p class="chat-text"><span class="chat-text username">{{ chat.user }}</span>: {{ chat.message }}</p>
+                <hr>
+            {% endfor %}
+        </div>
+        <form method="POST" action="{% url 'sports_chat' %}" class="form mb-2" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="text-center">
+                <input type="text" id="message" name="message" class="col-5">
+                <button type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
