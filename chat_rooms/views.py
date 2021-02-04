@@ -6,6 +6,7 @@ from datetime import datetime
 from .models import Chat, SportChat, User
 from .forms import ChatForm, SportChatForm
 
+@login_required
 def chat_home(request):
     """ A view to return the chatrooms page defaulting
     to the general chat """
@@ -49,6 +50,7 @@ def chat_home(request):
     return render(request, 'chat_rooms/chat_home.html', context)
 
 
+@login_required
 def sports_chat(request):
     """ A view to return the chat room page using sports model """
     if not request.user.is_authenticated:

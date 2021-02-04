@@ -126,15 +126,22 @@ When a user is not logged in, 'Sign In' and 'Sign Up' navigation items will be d
 
 When a user is logged in, 'Profile', 'Chat Rooms' and 'Sign Out' navigation items will be displayed.
 
+Chat Rooms navigation link will be a drop down list with the chat room channels.
+
 User Story:
 
 > As a user, I want to be able to chat with other users in the chatroom in a safe and moderated environment.
 
 Acceptance Criteria:
-* Chat rooms for users to have real time conversations with other users.
+* Chat rooms for users to have conversations with other users.
 * Functionality to allow moderators to remove messages and ban users who break the terms of service.
 
 Implementation:
+
+Chat rooms will be implemented with a form control to send messages. These chats will be stored in databases with 
+a maximum limit of 21. Once the limit is reached, the oldest message on the chat should be deleted.
+
+Admin users should have access to remove messages that make break the terms of service and the ability to ban users.
 
 User Story:
 
@@ -144,6 +151,8 @@ Acceptance Criteria:
 * Payment functionality must be implemented that allows users to buy subscription packages.
 
 Implementation:
+
+Stripe payment functionality will be implemented to allow users to pay for a premium subscription package.
 
 User Story:
 
@@ -203,6 +212,7 @@ Acceptance Criteria:
 * Users who have not purchased a subscription should not be able to private message other users.
 
 Implementation:
+Private messaging functionality will be implemented to allow users with a premium subscription to message other premium users.
 
 User Story:
 
@@ -214,6 +224,10 @@ Acceptance Criteria:
 
 Implementation:
 
+Non premium sucscription members will have access to two chat rooms, General Chat and Sports Chat.
+
+Premium subscription members will have access to 6 premium chat rooms.
+
 User Story:
 
 > As a premium user, I want to be able to customize my profile with my own personal images so that I stand out.
@@ -223,6 +237,8 @@ Acceptance Criteria:
 * Users who have not purchased a subscription cannot upload profile pictures.
 
 Implementation:
+
+Users who have a premium subscription will be able to upload their own profile pictures.
 
 ### **The Skeleton Plane**
 #### Wireframes
@@ -237,6 +253,9 @@ Users own profile:<br>
 ![User Profile](readme_images/wireframes/profile_user.jpg)<br>
 Profile to other users:<br>
 ![User Profile](readme_images/wireframes/profile_non_user.jpg)<br>
+
+Chat Rooms:<br>
+![Chat Rooms](readme_images/wireframes/chat_rooms.jpg)<br>
 
 #### Database Design
 
