@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <h1 class="text-center" id="main-heading">Subscription: Active</h1>
+    <hr class="col-6">
+{% endblock %}
+
+{% block content %}
+    <main class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 offset-md-3 text-center" id="form-styling">
+                <h5>Hi {{request.user.username}}</h5>
+                <p class="main-text">You have already purchased a premium subscription and have full access to 
+                our premium content.
+                <br>
+                <br>
+                Please click <a class="anchors" href="{% url 'chat_home' %}">here</a> to visit our chat rooms.</p>
+            </div>
+        </div>
+    </main>
+{% endblock %}

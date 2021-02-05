@@ -6,4 +6,5 @@ urlpatterns = [
     path('charge/', views.charge, name='charge'),
     path('success/<str:args>/', views.checkout_success, name='checkout_success'),
     path('error/', views.checkout_error, name='checkout_error'),
+    path('subscription_active/', views.subscription_active, name='subscription_active'),
 ]
