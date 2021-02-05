@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.conf import settings
-from django.views.decorators.csrf import csrf_exempt
+
+from django.contrib.auth.decorators import login_required
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -11,12 +12,15 @@ import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+
 # Create your views here.
+@login_required
 def checkout(request):
     """ A view to return the checkout page """
     return render(request, 'checkout/checkout.html')
 
 
+@login_required
 def charge(request):
     """ A view to charge the customer 4.99 subscription fee.
     If payment fails, render the checkout_error page otherwise 
@@ -48,6 +52,7 @@ def charge(request):
     return redirect(reverse('checkout_success', args=[amount]))
 
 
+@login_required
 def checkout_success(request, args):
     """ A view to render the checkout success page. It gets the 
     current date and adds 1 year to send to the template for start
@@ -68,6 +73,7 @@ def checkout_success(request, args):
     return render(request, 'checkout/checkout_success.html', context)
 
 
+@login_required
 def checkout_error(request):
     """ A view to render the checkout error page """
     return render(request, 'checkout/checkout_error.html')

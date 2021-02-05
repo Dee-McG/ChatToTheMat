@@ -8,6 +8,7 @@ from .models import User
 
 
 # Create your views here.
+@login_required
 def profiles(request):
     """ A view to return the profile page """
 
@@ -26,10 +27,9 @@ def profiles(request):
         return render(request, 'profiles/profile.html')
         
 
+@login_required
 def edit_profile(request):
     """ A function to edit the users profile and render the edit_profile page """
-    if not request.user.is_authenticated:
-        return render(request, 'home/index.html')
 
     try:
         profile = get_object_or_404(EditProfile, user=request.user)
@@ -55,6 +55,8 @@ def edit_profile(request):
 
     return render(request, 'profiles/edit_profile.html', context)
 
+
+@login_required
 def delete_profile(request):
     """ Delete current logged in user"""
     

@@ -10,9 +10,6 @@ from .forms import ChatForm, SportChatForm
 def chat_home(request):
     """ A view to return the chatrooms page defaulting
     to the general chat """
-    if not request.user.is_authenticated:
-        return render(request, 'home/index.html')
-
     chat = Chat.objects.all()
 
     channel = 'general'
@@ -53,8 +50,6 @@ def chat_home(request):
 @login_required
 def sports_chat(request):
     """ A view to return the chat room page using sports model """
-    if not request.user.is_authenticated:
-        return render(request, 'home/index.html')
 
     chat = SportChat.objects.all()
 
