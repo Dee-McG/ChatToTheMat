@@ -1,12 +1,52 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block corecss %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block page_header %}
-    <h1 class="text-center" id="main-heading">Premium Subscription Checkout</h1>
+    <h1 class="text-center" id="main-heading">Checkout</h1>
     <hr class="col-6">
 {% endblock %}
 
 {% block content %}
     <main class="container">
+        <div class="row" id="form-styling">
+            <div class="col-sm-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                <h4 class="text-center">Gold Subscription</h4>
+                <form action="{% url 'charge' %}" method="POST" id="payment-form">
+                {% csrf_token %}
+                    <div class="form-row">
+                        <label for="name" class="col-12">
+                        Name:
+                        </label>
+                        <input type="text" id="name" name="name" class="col-12">
+                        <label for="name" class="col-12">
+                        Email:
+                        </label>
+                        <input type="text" id="email" name="email" class="col-12">
+                        <label for="card-element" class="col-12">
+                        Credit or Debit Card:
+                        </label>
+                        <div id="card-element" class="col-12">
+                        <!-- A stripe element will go here -->
+                        </div>
+
+                        <!-- Display form errors -->
+                        <div id="card-errors" role="alert"></div>
+                    </div>
+                    <div class="text-center">
+                        <button id="pay-btn">Submit Payment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+    <script src="{% static 'checkout/js/stripe.js' %}"></script>
 {% endblock %}

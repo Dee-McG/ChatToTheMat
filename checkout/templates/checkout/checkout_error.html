@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <h1 class="text-center" id="main-heading">Error</h1>
+    <hr class="col-6">
+{% endblock %}
+
+{% block content %}
+    <main class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 offset-md-3 text-center" id="form-styling">
+                <h5>Something went wrong.</h5>
+                <p class="main-text">You card has not been charged. Please ensure your card details are correct 
+                and that there are sufficient funds available. Please contact us via the Contact page if issues 
+                continue.
+                <br>
+                Please click <a class="anchors" href="{% url 'checkout' %}">here</a> to go back to the checkout page.</p>
+            </div>
+        </div>
+    </main>
+{% endblock %}

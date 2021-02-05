@@ -8,5 +8,17 @@
 
 {% block content %}
     <main class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 offset-md-3" id="form-styling">
+                <h5 class="text-center">Thank you for purchasing our Premium Subscription.</h5>
+                <p class="main-text">{{user}} Your Premium Subscription starts on {{start_date}} and will end on 
+                {{end_date}}. You now have access to our Gold Chat rooms, private messaging functionality 
+                and have the ability to upload a custom profile picture.</p>
+
+                <p class="main-text">
+                Should you have any queries regarding this purchase, please contact us via the contact 
+                page and one of our team will get back to you as quick as possible.</p>
+            </div>
+        </div>
     </main>
 {% endblock %}

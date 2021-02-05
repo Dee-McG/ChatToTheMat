@@ -1,0 +1,11 @@
+div#card-element {
+    background-color: white;
+}
+
+#pay-btn {
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-weight: bolder;
+    color: rgb(243, 96, 4);
+}
