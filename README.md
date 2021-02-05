@@ -295,7 +295,7 @@ rest of the websites content uses the 'Roboto' font.
 * [CSS](https://en.wikipedia.org/wiki/CSS)
 	* This project uses custom written CSS to style the Website.
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-   
+    * JS was used to load the toasts and to create the Stripe payments.
 * [Python](https://www.python.org/)
     * This project was created using Python framework [Django](https://www.djangoproject.com/) following Model-View-Template design and 
     Object Relational Mapping.
@@ -435,7 +435,8 @@ for your own idea. - Definition from [Github Docs](https://docs.github.com/en/fr
 
 ### Code
 
-The css gradient for the headings was taken from [CSS-TRICKS](https://css-tricks.com/snippets/css/gradient-text/).
+The Stripe payment was coded by following a [tutorial](https://www.youtube.com/watch?v=oZwyA9lUwRk) on youtube. This included the python 
+code and the javascript. 
 
 ### Acknowledgements
 
