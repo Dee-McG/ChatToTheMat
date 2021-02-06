@@ -89,6 +89,11 @@ def sports_chat(request):
 
 
 def delete_sport_message(request, chat_id):
+    """ View to allow super users to delete sports chat messages """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admins can do that.')
+        return redirect(reverse('sports_chat'))
+
     message = get_object_or_404(SportChat, pk=chat_id)
     message.delete()
     messages.success(request, 'Message deleted!')
@@ -96,6 +101,11 @@ def delete_sport_message(request, chat_id):
 
 
 def delete_general_message(request, chat_id):
+    """ View to allow super users to delete general chat messages """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admins can do that.')
+        return redirect(reverse('chat_home'))
+
     message = get_object_or_404(Chat, pk=chat_id)
     message.delete()
     messages.success(request, 'Message deleted!')
