@@ -86,3 +86,17 @@ def sports_chat(request):
         form = SportChatForm(instance=user) 
     
     return render(request, 'chat_rooms/chat_home.html', context)
+
+
+def delete_sport_message(request, chat_id):
+    message = get_object_or_404(SportChat, pk=chat_id)
+    message.delete()
+    messages.success(request, 'Message deleted!')
+    return redirect(reverse('sports_chat'))
+
+
+def delete_general_message(request, chat_id):
+    message = get_object_or_404(Chat, pk=chat_id)
+    message.delete()
+    messages.success(request, 'Message deleted!')
+    return redirect(reverse('chat_home'))
