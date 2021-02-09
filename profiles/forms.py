@@ -1,9 +1,9 @@
 from django import forms
-from .models import EditProfile
+from .models import UserProfile
 
 
 class EditProfileForm(forms.ModelForm):
     """ Form for user to edit profile that uses all fields """
     class Meta:
-        model = EditProfile
+        model = UserProfile
         fields = ['name', 'location', 'bio']

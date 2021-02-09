@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-class EditProfile(models.Model):
+class UserProfile(models.Model):
     """
     A model to save or edit user profiles
     """

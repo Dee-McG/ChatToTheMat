@@ -3,46 +3,44 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .forms import EditProfileForm
-from .models import EditProfile
+from .models import UserProfile
 from .models import User
 
 
 # Create your views here.
 @login_required
-def profiles(request):
+def user_profile(request, user):
     """ A view to return the profile page """
 
     if not request.user.is_authenticated:
         return render(request, 'home/index.html')
-    
+
     try:
-        profile = get_object_or_404(EditProfile, user=request.user)
+        get_user = get_object_or_404(User, username=user)
+
+        user_profile = get_object_or_404(UserProfile, user=get_user)
 
         context = {
-            'profile': profile,
-        }
+                'user_profile': user_profile,
+            }
 
         return render(request, 'profiles/profile.html', context)
     except Exception as e:
         return render(request, 'profiles/profile.html')
-        
+
 
 @login_required
-def edit_profile(request):
+def edit_profile(request, user):
     """ A function to edit the users profile and render the edit_profile page """
 
-    try:
-        profile = get_object_or_404(EditProfile, user=request.user)
-    except Exception as e:
-        profile = EditProfile(user=request.user)
-    
+    profile = get_object_or_404(UserProfile, user=request.user)
+
     if request.method == 'POST':
 
         form = EditProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated!')
-            return redirect(reverse('profiles'))
         else:
            messages.error(request, 'Profile update failed. Please ensure the form is valid!') 
 

@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import EditProfile
+from .models import UserProfile
 
 # Register your models here.
-class EditProfileAdmin(admin.ModelAdmin):
+class UserProfileAdmin(admin.ModelAdmin):
     list_display = (
         'user',
         'name',
@@ -11,4 +11,4 @@ class EditProfileAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(EditProfile, EditProfileAdmin)
+admin.site.register(UserProfile, UserProfileAdmin)
