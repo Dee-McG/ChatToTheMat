@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -31,7 +31,8 @@ def user_profile(request, user):
 
 @login_required
 def edit_profile(request, user):
-    """ A function to edit the users profile and render the edit_profile page """
+    """ A function to edit the users profile and render
+    the edit_profile page """
 
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -42,9 +43,11 @@ def edit_profile(request, user):
             form.save()
             messages.success(request, 'Profile updated!')
         else:
-           messages.error(request, 'Profile update failed. Please ensure the form is valid!') 
+            messages.error(request,
+                           'Profile update failed.'
+                           'Please ensure the form is valid!')
 
-    else: 
+    else:
         form = EditProfileForm(instance=profile)
 
     context = {
@@ -57,15 +60,16 @@ def edit_profile(request, user):
 @login_required
 def delete_profile(request):
     """ Delete current logged in user"""
-    
+
     if not request.user.is_authenticated:
         return render(request, 'home/index.html')
-    
+
     user = get_object_or_404(User, pk=request.user.pk)
     try:
         user.delete()
         messages.success(request, "The user is deleted")
-        return render(request, 'home/index.html') 
+        return render(request, 'home/index.html')
     except Exception as e:
-        messages.error(request, "Something went wrong. User has not been deleted.")
+        messages.error(request,
+                       "Something went wrong. User has not been deleted.")
         return render(request, 'profiles/profile.html')
