@@ -8,6 +8,28 @@
 
 {% block content %}
     <main class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                <a class="anchors" href="{% url 'send_private_message' %}">Send new message</a>
+            </div>
 
+            {% if private_messages %}
+                {% for message in private_messages %}
+                    <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2" id="form-styling">
+                        <p class="main-text"><a href="{% url 'user_profile' message.from_user %}" class="anchors">{{ message.from_user }}</a> 
+                        <span class="chat-date">{{ message.date_time }}</span>
+                        </p> 
+                        <hr>
+                        <p class="chat-text">{{ message.message }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2" id="form-styling">
+                    <p class="main-text text-center">You have not sent or received any messages. 
+                        <a class="anchors" href="{% url 'send_private_message' %}">Send one now!</a>
+                    </p>
+                </div>
+            {% endif %}
+            </div>
     </main>
 {% endblock %}

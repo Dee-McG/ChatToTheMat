@@ -16,4 +16,4 @@ class PrivateMessages(models.Model):
                             null=False, blank=False)
 
     def __str__(self):
-        return self.from_user
+        return self.from_user or ''
