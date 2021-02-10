@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from .forms import ContactForm
 
@@ -13,9 +13,11 @@ def contact(request):
             messages.success(request, 'Contact request received!')
             return redirect(reverse('contact'))
         else:
-           messages.error(request, 'Contact request failed. Please ensure the form is valid!') 
+            messages.error(
+                request,
+                'Contact request failed. Please ensure the form is valid!')
 
-    else: 
+    else:
         form = ContactForm()
 
     context = {
