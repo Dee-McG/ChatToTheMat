@@ -3,7 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 
-from .models import Chat, SportChat, User
+from .models import Chat, SportChat
+ 
+from django.contrib.auth.models import User
 from .forms import ChatForm, SportChatForm
 
 

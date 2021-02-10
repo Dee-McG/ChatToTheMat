@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import EditProfileForm
 from .models import UserProfile
-from .models import User
+from django.contrib.auth.models import User
 
 
 # Create your views here.
