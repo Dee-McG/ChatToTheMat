@@ -27,4 +27,5 @@ urlpatterns = [
     path('profiles/', include('profiles.urls')),
     path('checkout/', include('checkout.urls')),
     path('private_messages/', include('private_messages.urls')),
+    path('admin_panel/', include('admin_panel.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
