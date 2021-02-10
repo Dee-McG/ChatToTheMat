@@ -6,6 +6,7 @@ from datetime import datetime
 from .models import Chat, SportChat, User
 from .forms import ChatForm, SportChatForm
 
+
 @login_required
 def chat_home(request):
     """ A view to return the chatrooms page defaulting
@@ -13,7 +14,7 @@ def chat_home(request):
     chat = Chat.objects.all()
 
     channel = 'general'
-    
+
     context = {
         'chat': chat,
         'channel': channel,
@@ -27,23 +28,25 @@ def chat_home(request):
     if request.method == 'POST':
 
         form = ChatForm(request.POST, instance=user)
-        if form.is_valid(): 
+        if form.is_valid():
             # Prevent auto save and add in time field
             form = form.save(commit=False)
-            form.time = datetime.now()           
+            form.time = datetime.now()
             form.save()
 
             # Count DB entries and delete oldest record
             count = Chat.objects.count()
             if count > 20:
                 Chat.objects.order_by('time')[0].delete()
- 
+
             return redirect(reverse('chat_home'))
         else:
-           messages.error(request, 'Error! Something went wrong. Your message was not sent.')
+            messages.error(request,
+                           'Error! Something went wrong.'
+                           'Your message was not sent.')
     else:
-        form = ChatForm(instance=user) 
-    
+        form = ChatForm(instance=user)
+
     return render(request, 'chat_rooms/chat_home.html', context)
 
 
@@ -54,7 +57,7 @@ def sports_chat(request):
     chat = SportChat.objects.all()
 
     channel = 'sports'
-    
+
     context = {
         'chat': chat,
         'channel': channel,
@@ -68,23 +71,25 @@ def sports_chat(request):
     if request.method == 'POST':
 
         form = SportChatForm(request.POST, instance=user)
-        if form.is_valid(): 
+        if form.is_valid():
             # Prevent auto save and add in time field
             form = form.save(commit=False)
-            form.time = datetime.now()           
+            form.time = datetime.now()
             form.save()
 
             # Count DB entries and delete oldest record
             count = SportChat.objects.count()
             if count > 20:
                 SportChat.objects.order_by('time')[0].delete()
- 
+
             return render(request, 'chat_rooms/chat_home.html', context)
         else:
-           messages.error(request, 'Error! Something went wrong. Your message was not sent.')
+            messages.error(
+                request,
+                'Error! Something went wrong. Your message was not sent.')
     else:
-        form = SportChatForm(instance=user) 
-    
+        form = SportChatForm(instance=user)
+
     return render(request, 'chat_rooms/chat_home.html', context)
 
 
