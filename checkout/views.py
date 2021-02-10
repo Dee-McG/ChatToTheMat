@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
-from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 
@@ -29,7 +28,7 @@ def checkout(request):
 def charge(request):
     """ A view to charge the customer 4.99 subscription fee.
     If successful, PremiumUser will be created.
-    If payment fails, render the checkout_error page otherwise 
+    If payment fails, render the checkout_error page otherwise
     it will redirect to the checkout page """
     amount = 4.99
 
@@ -53,7 +52,9 @@ def charge(request):
             end_date = start_date + relativedelta(years=1)
 
             # Add logged in user to PremiumUsers
-            PremiumUser.objects.create(user=request.user, start_date=start_date, end_date=end_date, subscription=True)
+            PremiumUser.objects.create(
+                user=request.user, start_date=start_date,
+                end_date=end_date, subscription=True)
 
             return redirect(reverse('checkout_success', args=[amount]))
 
@@ -65,18 +66,18 @@ def charge(request):
 
 @login_required
 def checkout_success(request, args):
-    """ A view to render the checkout success page. It gets the 
+    """ A view to render the checkout success page. It gets the
     current date and adds 1 year to send to the template for start
     ad end subscription dates """
-    
+
     amount = args
     start_date = datetime.now()
     end_date = start_date + relativedelta(years=1)
-    
+
     start_date = datetime.strftime(start_date, '%d %B %Y')
     end_date = datetime.strftime(end_date, '%d %B %Y')
 
-    context= {
+    context = {
         'start_date': start_date,
         'end_date': end_date,
         'amount': amount,
