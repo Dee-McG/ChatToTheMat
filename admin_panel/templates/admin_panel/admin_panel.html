@@ -9,14 +9,25 @@
 {% block content %}
     <main class="container">
         <div class="row">
-            <div class="col-12" id="form-styling">
-                {% for contact in contacts %}
-                    <p>Contact Reason: {{contact.contact_reason}}</p>
-                    <p>Name: {{ contact.name }}</p>
-                    <p>Email: {{ contact.email }}</p>
-                    <p>Comments: {{contact.comments }}</p>
-                    <hr>
-                {% endfor %}
+            <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2" id="form-styling">
+                {% if contacts %}
+                    {% for contact in contacts %}
+                        <p>Contact Reason: {{contact.contact_reason}}</p>
+                        <p>Name: {{ contact.name }}</p>
+                        <p>Email: {{ contact.email }}</p>
+                        <p>Comments: {{contact.comments }}</p>
+                        <p>Status: {% if not contact.complete %}Open{% else %}Closed{% endif %}</p>
+                        <form method="POST" action="{% url 'update_contact_status' contact.id %}" class="form mb-2" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="text-center">
+                                <button class="btn rounded-0 submit-btn" type="submit">Close Contact Query</button>
+                            </div>
+                        </form>
+                        <hr>
+                    {% endfor %}
+                {% else %}
+                    <h6 class="text-center">There are no 'Open' contact queries.</h6>
+                {% endif %}
             <div>
         </div>
     </main>

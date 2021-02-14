@@ -3,7 +3,7 @@ from .models import Contact
 
 
 class ContactForm(forms.ModelForm):
-    """ Form for Contact model that uses all fields """
+    """ Form for Contact model that uses all fields except complete """
     class Meta:
         model = Contact
-        fields = '__all__'
+        fields = ['contact_reason', 'name', 'email', 'comments']

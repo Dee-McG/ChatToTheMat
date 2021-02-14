@@ -22,6 +22,7 @@ class Contact(models.Model):
     email = models.CharField(max_length=80,
                              null=True, blank=True)
     comments = models.CharField(max_length=1500, null=False, blank=False)
+    complete = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
