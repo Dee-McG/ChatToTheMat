@@ -8,6 +8,16 @@
 
 {% block content %}
     <main class="container">
-
+        <div class="row">
+            <div class="col-12" id="form-styling">
+                {% for contact in contacts %}
+                    <p>Contact Reason: {{contact.contact_reason}}</p>
+                    <p>Name: {{ contact.name }}</p>
+                    <p>Email: {{ contact.email }}</p>
+                    <p>Comments: {{contact.comments }}</p>
+                    <hr>
+                {% endfor %}
+            <div>
+        </div>
     </main>
 {% endblock %}
