@@ -27,6 +27,9 @@
                 {% if request.user.username == user_profile.user.username %}
                     <hr>
                     <div class="text-center">
+                        {% if user.is_superuser %}
+                            <button class="submit-btn"><a href="{% url 'admin_panel' %}" class="anchors">Admin Panel</a></button>
+                        {% endif %}
                         <button class="submit-btn"><a href="{% url 'edit_profile' request.user.username %}" class="anchors">Edit Profile</a></button>
                         <!-- Button trigger modal -->
                         <button type="button" class="submit-btn" data-toggle="modal" data-target="#delete_modal">
