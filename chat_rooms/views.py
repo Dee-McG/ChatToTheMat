@@ -43,7 +43,8 @@ def chat(request, room):
             # Count DB entries and delete oldest record
             count = ChatMessage.objects.filter(room=room).count()
             if count > 20:
-                ChatMessage.objects.filter(room=room).order_by('time')[0].delete()
+                ChatMessage.objects.filter(
+                    room=room).order_by('time')[0].delete()
 
             return render(request, 'chat_rooms/chat_home.html', context)
         else:
