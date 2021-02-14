@@ -18,12 +18,14 @@ def chat_home(request):
 
     banned_status = BannedUsers.objects.filter(user=request.user, banned=True)
 
+    if banned_status:
+        return redirect(reverse('banned'))
+
     channel = 'general'
 
     context = {
         'chat': chat,
         'channel': channel,
-        'banned_status': banned_status,
     }
 
     try:
@@ -61,6 +63,11 @@ def sports_chat(request):
     """ A view to return the chat room page using sports model """
 
     chat = SportChat.objects.all()
+
+    banned_status = BannedUsers.objects.filter(user=request.user, banned=True)
+
+    if banned_status:
+        return redirect(reverse('banned'))
 
     channel = 'sports'
 
@@ -121,3 +128,8 @@ def delete_general_message(request, chat_id):
     message.delete()
     messages.success(request, 'Message deleted!')
     return redirect(reverse('chat_home'))
+
+
+@login_required
+def banned(request):
+    return render(request, 'chat_rooms/banned.html')

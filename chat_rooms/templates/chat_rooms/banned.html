@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <main class="container" id="chat_container">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                <h2 class="text-center">BANNED</h2>
+                <p class="text-center main-text">{{ request.user }} you have been banned from the chat rooms.<br>
+                If you believe this is a mistake, please contact us via the 
+                <a class="anchors" href="{% url 'contact' %}">Contact</a> page
+                and select the 'Breach Of TOS' contact reason.
+                </p>
+            </div>
+        </div>
+    </main>
+    
+{% endblock %}

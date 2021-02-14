@@ -8,4 +8,5 @@ urlpatterns = [
          views.delete_sport_message, name='delete_sport_message'),
     path('delete/general/<int:chat_id>/',
          views.delete_general_message, name='delete_general_message'),
+    path('banned/', views.banned, name='banned'),
 ]
