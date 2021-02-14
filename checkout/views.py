@@ -19,7 +19,7 @@ def checkout(request):
     """ A view to return the checkout page """
     try:
         check_user = get_object_or_404(PremiumUser, user=request.user)
-        return render(request, 'checkout/subscription_active.html')
+        return redirect(reverse('subscription_active'))
     except Exception as e:
         return render(request, 'checkout/checkout.html')
 
