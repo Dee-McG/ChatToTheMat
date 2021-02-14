@@ -6,28 +6,25 @@ from datetime import datetime
 from .models import ChatMessage
 from admin_panel.models import BannedUsers
 
-from django.contrib.auth.models import User
 from .forms import ChatMessageForm
 
 
 @login_required
 def chat(request, room):
-
+    """ View to return chat messages dependent on room.
+    Filters messages and counts. If message per room > 20,
+    deletes the oldest message """
     banned_status = BannedUsers.objects.filter(user=request.user, banned=True)
 
+    # Return banned if user has been banned from chat
     if banned_status:
         return redirect(reverse('banned'))
 
-    if room == 'sports':
-        chat = ChatMessage.objects.filter(room=room)
-    elif room == "general":
-        chat = ChatMessage.objects.filter(room=room)
-
-    channel = room
+    chat = ChatMessage.objects.filter(room=room)
 
     context = {
         'chat': chat,
-        'channel': channel,
+        'channel': room,
     }
 
     user = request.user
@@ -60,16 +57,16 @@ def chat(request, room):
 
 
 def delete_message(request, room, chat_id):
-    """ View to allow super users to delete general chat messages """
+    """ View to allow super users to delete chat messages """
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only admins can do that.')
-        return redirect(reverse('chat', room=room))
+        return redirect(reverse('chat', args=[room]))
 
     message = get_object_or_404(ChatMessage, pk=chat_id)
     message.delete()
     messages.success(request, 'Message deleted!')
-    return redirect(reverse('chat', room=room))
+    return redirect(reverse('chat', args=[room]))
 
 
 @login_required
