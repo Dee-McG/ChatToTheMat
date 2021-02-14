@@ -1,0 +1,51 @@
+{% block page_header %}
+    <h1 class="text-center" id="main-heading">Gold General Chat</h1>
+{% endblock %}
+
+{% if user.premiumuser %}
+    <div class="row" id="form-styling">
+        <div class="col-12">
+            <div id="chat_messages">
+                {% for chat in chat %}
+                    <p class="chat-date">{{ chat.time }}</p> 
+                    <p class="chat-text">
+                    {% if user.is_superuser%}
+                        <span><a href="{% url 'delete_message' 'gold_history' chat.id %}"><i class="far fa-times-circle text-danger"></i></a></span>
+                    {% endif %}
+                    <span class="chat-text username">
+                        <a href="{% url 'user_profile' chat.user %}" class="anchors">{{ chat.user }}</a>
+                    </span>: {{ chat.message }}</p>
+                    <hr>
+                {% endfor %}
+            </div>
+            <form method="POST" action="{% url 'chat' room='gold_history' %}" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="text-center">
+                    <input type="text" id="message" name="message" class="col-5">
+                    <button type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% else %}
+    <div class="row" id="form-styling">
+        <div class="col-12">
+            <div id="chat_messages">
+                <p class="text-center main-text">You need a premium subscription to access the Gold Chat rooms</p>
+                <p class="text-center main-text">Benefits of a premium subscription include access to our 'Gold Chat
+                    Rooms'<br>
+                    Use of private messaging functionality and custom profile picture uploads!
+                </p>
+                <p class="text-center main-text">If you'd like to buy a premium subscription, click
+                    <a class="anchors" href="{% url 'checkout' %}"> here</a> to go to the checkout.</p>
+            </div>
+            <form class="form mb-2">
+                {% csrf_token %}
+                <div class="text-center">
+                    <input type="text" id="message" name="message" class="col-5">
+                    <button type="submit"><a href="{% url 'checkout' %}">Send</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endif %}

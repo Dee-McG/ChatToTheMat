@@ -21,13 +21,13 @@ def chat(request, room):
         return redirect(reverse('banned'))
 
     chat = ChatMessage.objects.filter(room=room)
+    user = request.user
 
     context = {
         'chat': chat,
         'channel': room,
+        'user': user,
     }
-
-    user = request.user
 
     if request.method == 'POST':
 
