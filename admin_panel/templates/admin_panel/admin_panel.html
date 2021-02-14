@@ -8,27 +8,44 @@
 
 {% block content %}
     <main class="container">
+        <!-- View contact queries and mark complete  -->
         <div class="row">
             <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2" id="form-styling">
                 {% if contacts %}
+                    <h3 class="text-center">Contact Queries</h3>
                     {% for contact in contacts %}
-                        <p>Contact Reason: {{contact.contact_reason}}</p>
-                        <p>Name: {{ contact.name }}</p>
-                        <p>Email: {{ contact.email }}</p>
-                        <p>Comments: {{contact.comments }}</p>
-                        <p>Status: {% if not contact.complete %}Open{% else %}Closed{% endif %}</p>
+                        <p class="main-text">Contact Reason: {{contact.contact_reason}}<br>
+                        Name: {{ contact.name }}<br>
+                        Email: {{ contact.email }}</br>
+                        Comments: {{contact.comments }}<br>
+                        Status: {% if not contact.complete %}Open{% else %}Closed{% endif %}</p>
                         <form method="POST" action="{% url 'update_contact_status' contact.id %}" class="form mb-2" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="text-center">
-                                <button class="btn rounded-0 submit-btn" type="submit">Close Contact Query</button>
+                                <button class="btn rounded-0 submit-btn" type="submit">Mark Complete</button>
                             </div>
                         </form>
                         <hr>
                     {% endfor %}
                 {% else %}
-                    <h6 class="text-center">There are no 'Open' contact queries.</h6>
+                    <h4 class="text-center">There are no 'Open' contact queries.</h4>
                 {% endif %}
-            <div>
+            </div>
         </div>
+        <!-- Search user to ban -->
+        <div class="row">
+            <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2" id="form-styling">
+                <h5 class="text-center">Ban User</h5>
+                <form method="POST" action="{% url 'ban_user' %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{ field | as_crispy_field }}
+                    {% endfor %}
+                    <div class="text-center">
+                        <button class="btn rounded-0 submit-btn" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        <div>
     </main>
 {% endblock %}

@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 
 from .models import Chat, SportChat
+from admin_panel.models import BannedUsers
 
 from django.contrib.auth.models import User
 from .forms import ChatForm, SportChatForm
@@ -15,11 +16,14 @@ def chat_home(request):
     to the general chat """
     chat = Chat.objects.all()
 
+    banned_status = BannedUsers.objects.filter(user=request.user, banned=True)
+
     channel = 'general'
 
     context = {
         'chat': chat,
         'channel': channel,
+        'banned_status': banned_status,
     }
 
     try:
