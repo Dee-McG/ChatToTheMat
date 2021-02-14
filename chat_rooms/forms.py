@@ -1,16 +1,9 @@
 from django import forms
-from .models import Chat, SportChat
+from .models import ChatMessage
 
 
-class ChatForm(forms.ModelForm):
+class ChatMessageForm(forms.ModelForm):
     """ Form for user to add a chat message, takes in message field """
     class Meta:
-        model = Chat
-        fields = ['message']
-
-
-class SportChatForm(forms.ModelForm):
-    """ Form for user to add a chat message, takes in message field """
-    class Meta:
-        model = SportChat
+        model = ChatMessage
         fields = ['message']
