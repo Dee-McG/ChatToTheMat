@@ -66,11 +66,15 @@ def cancel(request):
 def success(request):
     """ A view to render the checkout success page. It gets the
     current date and adds 1 year to send to the template for start
-    ad end subscription dates """
+    and end subscription dates. Creates premium user. """
 
     amount = 4.99
     start_date = datetime.now()
     end_date = start_date + relativedelta(years=1)
+
+    PremiumUser.objects.create(
+        user=request.user, start_date=start_date,
+        end_date=end_date, subscription=True)
 
     start_date = datetime.strftime(start_date, '%d %B %Y')
     end_date = datetime.strftime(end_date, '%d %B %Y')
@@ -93,8 +97,8 @@ def subscription_active(request):
 
 @csrf_exempt
 def stripe_webhook(request):
-    """ Webhook handling, create premium user if payment is successful
-    and return 200 response. Return 400 is payment is unsuccessful """
+    """ Webhook handling, If payment is successful
+    return 200 response. Return 400 is payment is unsuccessful """
     stripe.api_key = settings.STRIPE_SECRET_KEY
     endpoint_secret = settings.STRIPE_WH_SECRET
     payload = request.body
@@ -111,14 +115,5 @@ def stripe_webhook(request):
     except stripe.error.SignatureVerificationError as e:
         # Invalid signature
         return HttpResponse(status=400)
-
-    # Handle the checkout.session.completed event
-    if event['type'] == 'checkout.session.completed':
-        start_date = datetime.now()
-        end_date = start_date + relativedelta(years=1)
-
-        PremiumUser.objects.create(
-            user=request.user, start_date=start_date,
-            end_date=end_date, subscription=True)
 
     return HttpResponse(status=200)
