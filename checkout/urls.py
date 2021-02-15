@@ -3,10 +3,11 @@ from . import views
 
 urlpatterns = [
     path('', views.checkout, name='checkout'),
-    path('charge/', views.charge, name='charge'),
-    path('success/<str:args>/',
-         views.checkout_success, name='checkout_success'),
-    path('error/', views.checkout_error, name='checkout_error'),
+    path('config/', views.stripe_config),
+    path('create-checkout-session/', views.create_checkout_session),
+    path('success/', views.success),
+    path('cancel/', views.cancel),
+    path('webhook/', views.stripe_webhook),
     path('subscription_active/',
          views.subscription_active, name='subscription_active'),
 ]
