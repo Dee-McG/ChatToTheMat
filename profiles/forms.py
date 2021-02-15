@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import UserProfile
 
 
@@ -7,3 +8,6 @@ class EditProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['name', 'location', 'bio']
+
+    image = forms.ImageField(
+        label='Image', required=False, widget=CustomClearableFileInput)
