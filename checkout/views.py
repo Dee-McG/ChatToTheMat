@@ -117,3 +117,12 @@ def stripe_webhook(request):
         return HttpResponse(status=400)
 
     return HttpResponse(status=200)
+
+
+def check_premium_status():
+    """ Function to check premium user status and remove user
+    if premium ends """
+    date = datetime.now()
+    end_dates = PremiumUser.objects.filter(end_date__lte=date)
+
+    end_dates.delete()
