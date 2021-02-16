@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -14,6 +14,10 @@ def user_profile(request, user):
 
     if not request.user.is_authenticated:
         return render(request, 'home/index.html')
+    
+    context = {
+        'user': user,
+    }
 
     try:
         get_user = get_object_or_404(User, username=user)
@@ -27,9 +31,6 @@ def user_profile(request, user):
 
         return render(request, 'profiles/profile.html', context)
     except Exception as e:
-        context = {
-            'user': user,
-        }
         return render(request, 'profiles/profile.html', context)
 
 
@@ -38,14 +39,22 @@ def edit_profile(request, user):
     """ A function to edit the users profile and render
     the edit_profile page """
 
+    try:
+        profile = get_object_or_404(UserProfile, user=request.user)
+    except Exception as e:
+        UserProfile.objects.create(
+        user=request.user, name='',
+        location='')
+
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
-
         form = EditProfileForm(request.POST, instance=profile)
         if form.is_valid():
+            print(form)
             form.save()
             messages.success(request, 'Profile updated!')
+            return redirect(reverse('user_profile', args=[user]))
         else:
             messages.error(request,
                            'Profile update failed.'
