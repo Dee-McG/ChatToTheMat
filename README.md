@@ -1,6 +1,7 @@
 # Chat To The Mat
 Chat To The Mat is an online chat service where users can create online friendships. A premium subscription service 
-is available to users that allows access to our 'Gold Rooms' and enables the private messaging functionality. The live website can be found [here](https://chat-to-the-mat.herokuapp.com/).
+is available to users that allows access to our 'Gold Rooms' and enables the private messaging functionality. The live website can be found [here](https://chat-to-the-mat.herokuapp.com/).<br>
+![Mockup](readme_images/mockup.png)
 
 ## Table of Contents
 * [User Experience Design (UX)](#User-Experience-Design)
@@ -18,7 +19,6 @@ is available to users that allows access to our 'Gold Rooms' and enables the pri
             * [Colour Scheme](#Colour-Scheme)
             * [Typography](#Typography)
             * [Imagery](#Imagery)
-    * [Differences to Design](#Differences-to-Design)
 - [Features](#Features)
     * [Existing Features](#Existing-Features)
     * [Future Features](#Features-Left-to-Implement)
@@ -26,7 +26,6 @@ is available to users that allows access to our 'Gold Rooms' and enables the pri
 * [Testing](#Testing)
     * [Test Strategy](#Test-Strategy)
     * [Test Results](#Test-Results)
-    * [Isses and Resolutions](#Issues-and-Resolutions-to-issues-found-during-testing)
 * [Deployment](#Deployment)
     * [Project Creation](#Project-Creation)
     * [Heroku Deployment](#Deployment-To-Heroku)
@@ -70,6 +69,7 @@ features and areas of the site that are available once a paid subscription has b
 * As a premium user, I want to be able to private chat with other members so that I can gain deeper friendships with selected users.
 * As a premium user, I want to be able to access other areas that are not available to non subscription members.
 * As a premium user, I want to be able to customize my profile with my own personal images so that I stand out.
+
 
 ### **The Scope Plane**
 
@@ -128,6 +128,8 @@ When a user is logged in, 'Profile', 'Chat Rooms' and 'Sign Out' navigation item
 
 Chat Rooms navigation link will be a drop down list with the chat room channels.
 
+A font awesome mail icon will be displayed to logged in users in order for them to access private messages they receive. If the user does not have a premium subscription, they will be redirected to the checkout.
+
 User Story:
 
 > As a user, I want to be able to chat with other users in the chatroom in a safe and moderated environment.
@@ -135,13 +137,17 @@ User Story:
 Acceptance Criteria:
 * Chat rooms for users to have conversations with other users.
 * Functionality to allow moderators to remove messages and ban users who break the terms of service.
+* Only admin users should be able to see the custom admin panel.
 
 Implementation:
 
 Chat rooms will be implemented with a form control to send messages. These chats will be stored in databases with 
 a maximum limit of 21. Once the limit is reached, the oldest message on the chat should be deleted.
 
-Admin users should have access to remove messages that make break the terms of service and the ability to ban users.
+Admin users should have access to remove messages that make break the terms of service directly from the chatroom, this can be done by clicking the X beside the chat message.
+
+Admin users will have the ability to ban users by navigating to the admin panel from their profile page and selecting the user from the list. 
+
 
 User Story:
 
@@ -167,7 +173,7 @@ Implementation:
 
 A contact page will be implemented with a form to allow users to contact staff. The form should clearly display if submission was successful or failed to send. 
 
-This will contain a drop down asking for the reason of contact. The options will be:
+The contact form will contain a drop down asking for the reason of contact. The options will be:
 * Breach of TOS
 * General Query
 * Technical Issue
@@ -177,7 +183,6 @@ Other fields will be:
 * Name (Username or Name)
 * Email
 * Comments
-
 
 User Story:
 
@@ -194,14 +199,14 @@ A profile page will be implemented that allows the user to update their informat
 * Name
 * Location
 * Bio
+* Img Url (For premium users only)
 
 These fields are optional if the user wants to update them. Once updated they will display to other users who view their profile.
 If the user is logged in and it is their own profile (accessed via the profile tab), a form will be displayed to allow the user 
 to update their profile. There will also be a button displayed to allow the user to delete their profile. This deletion will be 
 permanent so a warning must be displayed to the user that allows them to either cancel or delete the account.
 
-Users can view ther users profiles by clicking the users name on the chat room application. They should not have access to update 
-or delete that users profile.
+Users can view another users profiles by clicking the users name on the chat room application. They can view their own by either clicking the profile navigation or clicking their name directly from a chat room. Users should not have access to update or delete that users profile.
 
 User Story:
 
@@ -212,7 +217,7 @@ Acceptance Criteria:
 * Users who have not purchased a subscription should not be able to private message other users.
 
 Implementation:
-Private messaging functionality will be implemented to allow users with a premium subscription to message other premium users.
+Private messaging functionality will be implemented to allow users with a premium subscription to access the private messaging page to send or view messages.
 
 User Story:
 
@@ -226,39 +231,56 @@ Implementation:
 
 Non premium sucscription members will have access to two chat rooms, General Chat and Sports Chat.
 
-Premium subscription members will have access to 6 premium chat rooms.
+Premium subscription members will have access to view messages in premium chat rooms.
 
 User Story:
 
 > As a premium user, I want to be able to customize my profile with my own personal images so that I stand out.
 
 Acceptance Criteria:
-* Users who have purchased a subscription can upload profile pictures.
-* Users who have not purchased a subscription cannot upload profile pictures.
+* Users who have purchased a subscription can add custom profile pictures.
+* Users who have not purchased a subscription cannot upload profile pictures and will have a default picture.
 
 Implementation:
 
-Users who have a premium subscription will be able to upload their own profile pictures.
+Users who have a premium subscription will be able to add a url to display a profile picture of their own choice on the edit profile page.
+
 
 ### **The Skeleton Plane**
 #### Wireframes
-Home Page:<br>
+Home:<br>
 ![Home](readme_images/wireframes/home.jpg)<br>
 
-Contct Page:<br>
+Contct:<br>
 ![Contact](readme_images/wireframes/contact.jpg)<br>
 
 Profile:<br>
-Users own profile:<br>
-![User Profile](readme_images/wireframes/profile_user.jpg)<br>
-Profile to other users:<br>
-![User Profile](readme_images/wireframes/profile_non_user.jpg)<br>
+![User Profile](readme_images/wireframes/profile.jpg)<br>
+
+Edit Profile:<br>
+![Edit Profile](readme_images/wireframes/edit-profile.jpg)<br>
+
+Admin Panel:<br>
+![Admin panel](readme_images/wireframes/admin-panel.jpg)<br>
 
 Chat Rooms:<br>
-![Chat Rooms](readme_images/wireframes/chat_rooms.jpg)<br>
+![Chat Rooms](readme_images/wireframes/chat-rooms.jpg)<br>
+
+Checkout:<br>
+![Checkout](readme_images/wireframes/checkout.jpg)<br>
+
+Checkout Success:<br>
+![Checkout Success](readme_images/wireframes/checkout-success.jpg)<br>
+
+Sign In:<br>
+![Sign In](readme_images/wireframes/signin.jpg)<br>
+
+Chat Rooms:<br>
+![Sign Out](readme_images/wireframes/signout.jpg)<br>
 
 #### Database Design
-
+ER Diagram
+![ER Diagram](readme_images\er_diagram.png)
 
 #### Security 
 
@@ -267,17 +289,17 @@ Chat Rooms:<br>
 ### Design
 
 #### Colour Scheme
-
+The header and footer background colour is #353535. ![Header & Footer](readme_images/header-footer.png)<br>
+The main content background colour is #1b1b1b. ![Background](readme_images/background.png)<br>
+The heading text and anchor link colour throughout the website is #ff914d. ![Header & Link Text](readme_images/headings.png)<br>
+The main text colour is #eeeee7. ![Main text](readme_images/main-text.png)<br>
 
 #### Typography
-The main heading on all pages use the 'Orbitron' font while the 
+The headings on all pages use the 'Orbitron' font while the 
 rest of the websites content uses the 'Roboto' font.
 
 #### Imagery
-
-
-## Differences to Design
-
+Premium users custom profile pictures are added by url and rendered into an image tag. I do not own these images and did not upload them into the site.
 
 ****
 ## Features
@@ -300,6 +322,40 @@ rest of the websites content uses the 'Roboto' font.
     * This project was created using Python framework [Django](https://www.djangoproject.com/) following Model-View-Template design and 
     Object Relational Mapping.
     * Python Modules used (These can be found in the requirements.txt project file):
+        * asgiref==3.3.1
+        * autopep8==1.5.5
+        * boto3==1.16.59
+        * botocore==1.19.59
+        * certifi==2020.12.5
+        * cffi==1.14.4
+        * chardet==4.0.0
+        * cryptography==3.4.4
+        * defusedxml==0.6.0
+        * dj-database-url==0.5.0
+        * Django==3.1.5
+        * django-allauth==0.44.0
+        * django-crispy-forms==1.10.0
+        * django-storages==1.11.1
+        * gunicorn==20.0.4
+        * idna==2.10
+        * jmespath==0.10.0
+        * oauthlib==3.1.0
+        * psycopg2==2.8.6
+        * psycopg2-binary==2.8.6
+        * pycodestyle==2.6.0
+        * pycparser==2.20
+        * PyJWT==2.0.1
+        * python-dateutil==2.8.1
+        * python3-openid==3.2.0
+        * pytz==2020.5
+        * requests==2.25.1
+        * requests-oauthlib==1.3.0
+        * s3transfer==0.3.4
+        * six==1.15.0
+        * sqlparse==0.4.1
+        * stripe==2.55.1
+        * toml==0.10.2
+        * urllib3==1.26.2
 
 * [PostgreSQL](https://www.postgresql.org/)
     * PostgreSQL was used to create the relational databases used as data storage for this project.
@@ -320,7 +376,7 @@ rest of the websites content uses the 'Roboto' font.
 * [balsamiq Wireframes](https://balsamiq.com/wireframes/)
 	* This was used to create wireframes for 'The Skeleton Plane' stage of UX design.
 * [Canva](https://www.canva.com/)
-    * Canva design was used in order to create the website logo.
+    * Canva design was used in order to create the website logo and custom error images.
 * [Font Awesome](https://fontawesome.com/)
     * All the Icons displayed throughout the website are Font Awesome icons.
 * [Favicon](https://favicon.io/)
@@ -348,8 +404,7 @@ Python Code must pass through [PEP8 Validator](http://pep8online.com/)
 
 
 #### **Access Requirements**
-Tester must have access to MongoDB in order to manually verify the insertion 
-of records to users and events collections.
+Tester must have access to the Django Admin panel in order to manually verify the insertion of records into the databases.
 
 #### **Regression Testing**
 All features previous tested during development in a local environment must be regression 
@@ -370,18 +425,18 @@ Full test results can be found [here](TESTING.md)
 ## Deployment
 
 ### Project Creation
-To create this project I used the 'git init' command in the terminal from VS Code.
+To create this project I used the `git init` command in the terminal from VS Code.
 
-I then used the 'git add .' command followed by 'git commit -m "Initial commit"' and was then prompted to create a new repository 
+I then used the `git add .` command followed by `git commit -m "Initial commit"` and was then prompted to create a new repository 
 with the choices of public or private.
 
 The following commands were used for version control throughout the project:
 
-* git add *filename* - This command was used to add files to the staging area before committing.
+`git add <filename>` - This command was used to add files to the staging area before committing.
 
-* git commit -m "commit message explaining the updates" - This command was used to to commit changes to the local repository.
+`git commit -m "commit message explaining the updates"` - This command was used to to commit changes to the local repository.
 
-* git push - This command is used to push all committed changes to the GitHub repository.
+`git push` - This command is used to push all committed changes to the GitHub repository.
 
 
 ### Deployment to Heroku
@@ -435,7 +490,7 @@ for your own idea. - Definition from [Github Docs](https://docs.github.com/en/fr
 
 ### Code
 
-The Stripe payment was coded by following a [tutorial](https://www.youtube.com/watch?v=oZwyA9lUwRk) on youtube. This included the python 
+The Stripe payment was coded by following a [tutorial](https://testdriven.io/blog/django-stripe-subscriptions/). This included the python 
 code and the javascript. 
 
 ### Acknowledgements
