@@ -14,6 +14,7 @@ class UserProfile(models.Model):
                                 null=True, blank=True)
     bio = models.CharField(max_length=1500,
                            null=True, blank=True)
+    img_url = models.CharField(max_length=1500, blank=True, null=True)
 
     def __str__(self):
         return self.name or ''

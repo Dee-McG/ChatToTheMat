@@ -19,7 +19,12 @@
                 <form method="POST" action="{% url 'edit_profile' request.user.username %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
-                        {{ field | as_crispy_field }}
+                        {% if field.name != 'img_url' %}
+                            {{ field | as_crispy_field }}
+                        {% endif %}
+                        {% if field.name == 'img_url' and request.user.premiumuser %}
+                            {{ field | as_crispy_field }}
+                        {% endif %}
                     {% endfor %}
                     <div class="text-center">
                         <button class="btn rounded-0 submit-btn" type="submit">Confirm</button>
