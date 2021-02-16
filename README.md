@@ -1,7 +1,7 @@
 # Chat To The Mat
 Chat To The Mat is an online chat service where users can create online friendships. A premium subscription service 
 is available to users that allows access to our 'Gold Rooms' and enables the private messaging functionality. The live website can be found [here](https://chat-to-the-mat.herokuapp.com/).<br>
-![Mockup](readme_images/mockup.png)
+![Mockup](readme_images/mockup.jpg)
 
 ## Table of Contents
 * [User Experience Design (UX)](#User-Experience-Design)
@@ -251,7 +251,7 @@ Users who have a premium subscription will be able to add a url to display a pro
 Home:<br>
 ![Home](readme_images/wireframes/home.jpg)<br>
 
-Contct:<br>
+Contact:<br>
 ![Contact](readme_images/wireframes/contact.jpg)<br>
 
 Profile:<br>
@@ -455,8 +455,30 @@ The following commands were used for version control throughout the project:
 1. Enter the repository name for the project and click search.
 1. Once the repo has been found, click the connect button.
 
+
+**Add PostgreSQL Database:**
+
+1. Click the resources tab.
+1. Under Add-ons seach for Heroku Postgres and then click on it when it appears.
+1. Select Plan name Hobby Dev - Free and then click Submit Order Form.
+
 **Set environment variables:**
 
+1. Click on the settings tab and then click reveal config vars.
+1. Variables added:<br>
+    * AWS_ACCESS_KEY_ID
+    * AWS_SECRET_ACCESS_KEY
+    * DATABASE_URL
+    * EMAIL_HOST_PASS
+    * EMAIL_HOST_USER
+    * SECRET_KEY
+    * STRIPE_PRICE_ID
+    * STRIPE_PUBLIC_KEY
+    * STRIPE_SECRET_KEY
+    * STRIPE_WH_SECRET
+    * USE_AWS
+
+*Please note the values for these variables depend on your own personal set up. For security reasons I will not add the values here.*
 
 **Enable automatic deployment:**
 1. Click the Deploy tab
@@ -468,11 +490,11 @@ The following commands were used for version control throughout the project:
 1. Click the Code drop down menu.
 1. Either Download the ZIP file, unpackage locally and open with IDE (This route ends here) OR Copy Git URL from the HTTPS dialogue box.
 1. Open your developement editor of choice and open a terminal window in a directory of your choice.
-1. Use the 'git clone' command in terminal followed by the copied git URL.
+1. Use the `git clone` command in terminal followed by the copied git URL.
 1. A clone of the project will be created locally on your machine.
 
 Once the project has been loaded into an IDE of choice, run the following command in the shell to install all the required packages:
-> pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ### Fork Project 
 
