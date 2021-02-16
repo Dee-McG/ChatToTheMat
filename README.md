@@ -279,8 +279,8 @@ Chat Rooms:<br>
 ![Sign Out](readme_images/wireframes/signout.jpg)<br>
 
 #### Database Design
-ER Diagram<br>
-![ER Diagram](readme_images\er_diagram.PNG)
+
+[ER Diagram](https://github.com/Daisy-McG/ChatToTheMat/blob/develop/readme_images/er-diagram.jpg)
 
 #### Security 
 
