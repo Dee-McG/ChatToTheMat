@@ -36,7 +36,7 @@
                 {% if request.user.username == user %}
                     <hr>
                     <div class="text-center">
-                        {% if user.is_superuser %}
+                        {% if request.user.is_superuser %}
                             <button class="submit-btn"><a href="{% url 'admin_panel' %}" class="anchors">Admin Panel</a></button>
                         {% endif %}
                         <button class="submit-btn"><a href="{% url 'edit_profile' request.user.username %}" class="anchors">Edit Profile</a></button>
