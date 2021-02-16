@@ -279,11 +279,14 @@ Chat Rooms:<br>
 ![Sign Out](readme_images/wireframes/signout.jpg)<br>
 
 #### Database Design
-ER Diagram
-![ER Diagram](readme_images\er_diagram.png)
+ER Diagram<br>
+![ER Diagram](readme_images\er_diagram.PNG)
 
 #### Security 
 
+Using config variables in heroku, all SECRET access keys are stored safely to prevent unwanted connections to the database.
+
+Django allauth was used to set up user registration and built in decorators allowed restricted access to certain features on the website that are not intended for regular users.
 
 ### **The Surface Plane**
 ### Design
@@ -317,7 +320,7 @@ Premium users custom profile pictures are added by url and rendered into an imag
 * [CSS](https://en.wikipedia.org/wiki/CSS)
 	* This project uses custom written CSS to style the Website.
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-    * JS was used to load the toasts and to create the Stripe payments.
+    * JS was used to load the toasts and to create the Stripe payments. It was also used for the refresh/scroll functionalty on the chatrooms.
 * [Python](https://www.python.org/)
     * This project was created using Python framework [Django](https://www.djangoproject.com/) following Model-View-Template design and 
     Object Relational Mapping.
@@ -382,8 +385,11 @@ Premium users custom profile pictures are added by url and rendered into an imag
 * [Favicon](https://favicon.io/)
     * Favicon.io was used to make the site favicon 
 * [Techsini](http://techsini.com/multi-mockup/index.php)
-    * Multi Device Website Mockup Generator was used to create the Mock up image in this README
-
+    * Multi Device Website Mockup Generator was used to create the Mock up image in this README.
+* [Visual Studio Code](https://code.visualstudio.com/)
+    * VS Code was my choice IDE used to develop the project.
+* [DbVisualizer](https://www.dbvis.com/)
+    * This was used to create the ER Diagram.
 ****
 ## Testing
 
