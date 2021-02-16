@@ -151,6 +151,12 @@ label {
     color: rgb(255, 145, 77)
 }
 
+/* Error Pages */
+#error-img {
+    max-height: 400px;
+    max-width: 400px;
+}
+
 /* Media Queries */
 
 @media only screen and (min-width: 370px) {
