@@ -13,7 +13,7 @@ def user_profile(request, user):
     """ A view to return the profile page """
 
     if not request.user.is_authenticated:
-        return render(request, 'home/index.html')
+        return redirect(reverse('home'))
     
     context = {
         'user': user,
