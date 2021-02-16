@@ -24,7 +24,7 @@
                 <h3>Bio: </h3>
                 <p class="main-text">{{ user_profile.bio }}</p>
                 <!-- Edit Profile and Delete Profile displays if user is looking at their own profile -->
-                {% if request.user.username == user_profile.user.username %}
+                {% if request.user.username == user %}
                     <hr>
                     <div class="text-center">
                         {% if user.is_superuser %}

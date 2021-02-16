@@ -22,11 +22,15 @@ def user_profile(request, user):
 
         context = {
                 'user_profile': user_profile,
+                'user': user,
             }
 
         return render(request, 'profiles/profile.html', context)
     except Exception as e:
-        return render(request, 'profiles/profile.html')
+        context = {
+            'user': user,
+        }
+        return render(request, 'profiles/profile.html', context)
 
 
 @login_required
