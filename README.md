@@ -419,6 +419,7 @@ JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
 Python Code must pass through [PEP8 Validator](http://pep8online.com/)
 #### **High Level Test Cases**
 
+![High Level Test Cases](readme_images/high-level-tc.jpg)<br>
 
 #### **Access Requirements**
 Tester must have access to the Django Admin panel in order to manually verify the insertion of records into the databases.
