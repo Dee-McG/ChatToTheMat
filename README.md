@@ -148,6 +148,8 @@ Admin users should have access to remove messages that make break the terms of s
 
 Admin users will have the ability to ban users by navigating to the admin panel from their profile page and selecting the user from the list. 
 
+A Terms of Service page will be implemented and can be accessed via a link in the footer.
+
 
 User Story:
 
@@ -278,6 +280,9 @@ Sign In:<br>
 Chat Rooms:<br>
 ![Sign Out](readme_images/wireframes/signout.jpg)<br>
 
+Terms and Conditions:<br>
+![Terms and Conditions](readme_images/wireframes/terms-and-conditions.jpg)<br>
+
 #### Database Design
 
 [ER Diagram](https://github.com/Daisy-McG/ChatToTheMat/blob/develop/readme_images/er-diagram.jpg)
@@ -304,6 +309,8 @@ rest of the websites content uses the 'Roboto' font.
 #### Imagery
 Premium users custom profile pictures are added by url and rendered into an image tag. I do not own these images and did not upload them into the site.
 
+### Differences to Design
+The footer content was implemented different to the original design. Wire frames have the Terms of Service in the center above the copyright information but this caused a lot of empty space and the footer height too big so it was implemented to sit at the right side of the page.
 ****
 ## Features
 
@@ -401,6 +408,8 @@ Form refactoring to allow admins to search via name instead of drop down selecti
     * This was used to create the ER Diagram.
 * [AWS](https://aws.amazon.com/free/)
     * AWS S3 Bucket was set up to store static files.
+* [Policy Maker](https://policymaker.io/terms-conditions-ready/)
+    * Policy maker was used to generate the terms of service.
 ****
 ## Testing
 
