@@ -309,9 +309,18 @@ Premium users custom profile pictures are added by url and rendered into an imag
 
 ### Existing Features
 
+Basic chat room functionality.
+Premium subscription features Private Messaging / Gold Chat Rooms / Custom profile images.
+Stripe payments for the premium subscription service.
+Contact form.
+Full allauth authentication for user registrations/logins.
+Small admin panel for contact queries and ease to ban users.
+Admin delete functionality on chat messages.
 
 ### Features Left to Implement
+During the next phase of development, the AWS set up will be utilized to allow users to upload custom images to their profile and attaching images via private messaging.
 
+Form refactoring to allow admins to search via name instead of drop down selection. Same for private messaging.
 
 ****
 ## Technologies
@@ -390,6 +399,8 @@ Premium users custom profile pictures are added by url and rendered into an imag
     * VS Code was my choice IDE used to develop the project.
 * [DbVisualizer](https://www.dbvis.com/)
     * This was used to create the ER Diagram.
+* [AWS](https://aws.amazon.com/free/)
+    * AWS S3 Bucket was set up to store static files.
 ****
 ## Testing
 
@@ -521,6 +532,9 @@ for your own idea. - Definition from [Github Docs](https://docs.github.com/en/fr
 The Stripe payment was coded by following a [tutorial](https://testdriven.io/blog/django-stripe-subscriptions/). This included the python 
 code and the javascript. 
 
+The code for adding 1 year to date on the premium subscription services was found in this [Stack overflow](https://stackoverflow.com/questions/15741618/add-one-year-in-current-date-python/15743908) post.
+
 ### Acknowledgements
 
+I'd like to thank [Sean](https://github.com/nazarja) for his help with figuring out and resolving my redirect function issue on user profiles.
 ****
