@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.conf import settings
 from django.http.response import JsonResponse
 from django.contrib.auth.decorators import login_required
@@ -16,7 +16,12 @@ import stripe
 # Create your views here.
 @login_required
 def checkout(request):
-    """ A view to return the checkout page """
+    """ A view to return the checkout page 
+    redirect to subscription active if user already
+    has a premium subscription """
+
+    if request.user.premiumuser:
+        return redirect(reverse('subscription_active'))
 
     return render(request, 'checkout/checkout.html')
 
