@@ -71,18 +71,15 @@ def edit_profile(request, user):
 
 
 @login_required
-def delete_profile(request):
+def delete_profile(request, user):
     """ Delete current logged in user"""
 
     if not request.user.is_authenticated:
         return render(request, 'home/index.html')
 
-    user = get_object_or_404(User, pk=request.user.pk)
-    try:
+    if request.user.username == user:
+        user = request.user
         user.delete()
-        messages.success(request, "The user is deleted")
-        return render(request, 'home/index.html')
-    except Exception as e:
-        messages.error(request,
-                       "Something went wrong. User has not been deleted.")
-        return render(request, 'profiles/profile.html')
+        
+    return redirect(reverse ('home'))
+

@@ -61,7 +61,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">Cancel</button>
-                            <a href="{% url 'delete_profile' %}" class="close text-danger anchors">Delete Account</a>
+                            <a href="{% url 'delete_profile' request.user.username %}" class="close text-danger anchors">Delete Account</a>
                         </div>
                     </div>
                 </div>
