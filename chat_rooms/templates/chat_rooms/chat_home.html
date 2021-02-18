@@ -25,25 +25,6 @@
 {% endblock %}
 
 {% block postloadjs %}
-<script type="text/javascript">
-    $(document).ready(function()
-{
-    $("#chat_messages").scrollTop($("#chat_messages")[0].scrollHeight);
-    
-    function refresh()
-    {
-        var div = $('#chat_messages'),
-            divHtml = div.html();
-
-        div.html(divHtml);
-
-        $("#chat_messages").scrollTop($("#chat_messages")[0].scrollHeight);
-    }
-
-    setInterval(function()
-    {
-        refresh()
-    }, 5000); // 5 secs
-})
-</script>
+{{ block.super }}
+    <script src="{% static 'chat_rooms/js/chat.js' %}"></script>
 {% endblock %}
