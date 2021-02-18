@@ -42,6 +42,7 @@ def edit_profile(request, user):
     try:
         profile = get_object_or_404(UserProfile, user=request.user)
     except Exception as e:
+        # Create empty User Profile if it doesn't exist
         UserProfile.objects.create(
         user=request.user, name='',
         location='')
@@ -51,7 +52,6 @@ def edit_profile(request, user):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=profile)
         if form.is_valid():
-            print(form)
             form.save()
             messages.success(request, 'Profile updated!')
             return redirect(reverse('user_profile', args=[user]))
