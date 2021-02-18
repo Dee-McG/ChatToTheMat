@@ -96,6 +96,10 @@ footer,p {
     padding: 5px 0 5px 0;
 }
 
+#tos {
+    margin-right: 20px;
+}
+
 /* Forms */
 
 label {

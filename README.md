@@ -142,7 +142,7 @@ Acceptance Criteria:
 Implementation:
 
 Chat rooms will be implemented with a form control to send messages. These chats will be stored in databases with 
-a maximum limit of 21. Once the limit is reached, the oldest message on the chat should be deleted.
+a maximum limit of 20 per room. Once the limit is reached, the oldest message on the chat should be deleted.
 
 Admin users should have access to remove messages that make break the terms of service directly from the chatroom, this can be done by clicking the X beside the chat message.
 
