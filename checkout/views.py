@@ -19,11 +19,11 @@ def checkout(request):
     """ A view to return the checkout page 
     redirect to subscription active if user already
     has a premium subscription """
-
-    if request.user.premiumuser:
+    try:
+        request.user.premiumuser
         return redirect(reverse('subscription_active'))
-
-    return render(request, 'checkout/checkout.html')
+    except Exception as e:
+        return render(request, 'checkout/checkout.html')
 
 
 @csrf_exempt
