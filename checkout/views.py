@@ -16,7 +16,7 @@ import stripe
 # Create your views here.
 @login_required
 def checkout(request):
-    """ A view to return the checkout page 
+    """ A view to return the checkout page
     redirect to subscription active if user already
     has a premium subscription """
     try:

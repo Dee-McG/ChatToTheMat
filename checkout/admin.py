@@ -2,8 +2,8 @@ from django.contrib import admin
 from .models import PremiumUser
 
 
-# Register your models here.
 class PremiumUserAdmin(admin.ModelAdmin):
+    """ Premium User Admin """
     list_display = (
         'user',
         'start_date',
