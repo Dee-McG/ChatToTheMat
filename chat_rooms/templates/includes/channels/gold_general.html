@@ -5,8 +5,10 @@
 {% if user.premiumuser %}
     <div class="row" id="form-styling">
         <div class="col-12">
+            <!-- Chat message container -->
             <div id="chat_messages">
                 {% for chat in chat %}
+                    <!-- Render Chat details -->
                     <p class="chat-date">{{ chat.time }}</p> 
                     <p class="chat-text">
                     {% if user.is_superuser%}
@@ -18,9 +20,11 @@
                     <hr>
                 {% endfor %}
             </div>
+            <!-- Chat form -->
             <form method="POST" action="{% url 'chat' room='gold_general' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="text-center">
+                    <a href="{% url 'chat' room='gold_general' %}" class="anchors"><i class="fas fa-sync"></i></a>
                     <input type="text" id="message" name="message" class="col-5">
                     <button type="submit">Send</button>
                 </div>
