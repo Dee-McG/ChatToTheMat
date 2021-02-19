@@ -40,7 +40,7 @@ def create_checkout_session(request):
     """ A view to create a checkout session using the product
     create in stripe with a price of 4.99 """
     if request.method == 'GET':
-        domain_url = 'http://127.0.0.1:8000/'
+        domain_url = 'https://chat-to-the-mat.herokuapp.com/'
         stripe.api_key = settings.STRIPE_SECRET_KEY
         try:
             checkout_session = stripe.checkout.Session.create(
