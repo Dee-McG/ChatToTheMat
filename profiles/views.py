@@ -14,7 +14,7 @@ def user_profile(request, user):
 
     if not request.user.is_authenticated:
         return redirect(reverse('home'))
-    
+
     context = {
         'user': user,
     }
@@ -44,8 +44,8 @@ def edit_profile(request, user):
     except Exception as e:
         # Create empty User Profile if it doesn't exist
         UserProfile.objects.create(
-        user=request.user, name='',
-        location='')
+            user=request.user, name='',
+            location='')
 
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -80,6 +80,5 @@ def delete_profile(request, user):
     if request.user.username == user:
         user = request.user
         user.delete()
-        
-    return redirect(reverse ('home'))
 
+    return redirect(reverse('home'))
