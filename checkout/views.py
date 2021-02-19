@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.conf import settings
 from django.http.response import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from django.http.response import JsonResponse, HttpResponse
 
@@ -56,6 +57,14 @@ def create_checkout_session(request):
                     }
                 ]
             )
+
+            start_date = datetime.now()
+            end_date = start_date + relativedelta(years=1)
+
+            PremiumUser.objects.create(
+                user=request.user, start_date=start_date,
+                end_date=end_date, subscription=True)
+
             return JsonResponse({'sessionId': checkout_session['id']})
         except Exception as e:
             return JsonResponse({'error': str(e)})
@@ -73,24 +82,25 @@ def success(request):
     current date and adds 1 year to send to the template for start
     and end subscription dates. Creates premium user. """
 
-    amount = 4.99
-    start_date = datetime.now()
-    end_date = start_date + relativedelta(years=1)
+    try:
+        user = request.user.premiumuser
 
-    PremiumUser.objects.create(
-        user=request.user, start_date=start_date,
-        end_date=end_date, subscription=True)
+        amount = 4.99
+        start_date = datetime.now()
+        end_date = start_date + relativedelta(years=1)
 
-    start_date = datetime.strftime(start_date, '%d %B %Y')
-    end_date = datetime.strftime(end_date, '%d %B %Y')
+        start_date = datetime.strftime(start_date, '%d %B %Y')
+        end_date = datetime.strftime(end_date, '%d %B %Y')
 
-    context = {
-        'start_date': start_date,
-        'end_date': end_date,
-        'amount': amount,
-    }
-
-    return render(request, 'checkout/checkout_success.html', context)
+        context = {
+            'start_date': start_date,
+            'end_date': end_date,
+            'amount': amount,
+        }
+        return render(request, 'checkout/checkout_success.html', context)
+    except Exception as e:
+        messages.error(request, 'You cannot visit this link, please purchase a subscription')
+        return redirect(reverse('home'))
 
 
 @login_required
