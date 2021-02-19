@@ -40,7 +40,7 @@ def create_checkout_session(request):
     """ A view to create a checkout session using the product
     create in stripe with a price of 4.99 """
     if request.method == 'GET':
-        domain_url = 'https://chat-to-the-mat.herokuapp.com/'
+        domain_url = 'http://127.0.0.1:8000/'
         stripe.api_key = settings.STRIPE_SECRET_KEY
         try:
             checkout_session = stripe.checkout.Session.create(
@@ -57,14 +57,8 @@ def create_checkout_session(request):
                     }
                 ]
             )
-
-            start_date = datetime.now()
-            end_date = start_date + relativedelta(years=1)
-
-            PremiumUser.objects.create(
-                user=request.user, start_date=start_date,
-                end_date=end_date, subscription=True)
-
+            # Create session cookie
+            request.session['pp_redirect'] = True
             return JsonResponse({'sessionId': checkout_session['id']})
         except Exception as e:
             return JsonResponse({'error': str(e)})
@@ -78,17 +72,19 @@ def cancel(request):
 
 @login_required
 def success(request):
-    """ A view to render the checkout success page. It gets the
-    current date and adds 1 year to send to the template for start
-    and end subscription dates. Creates premium user. """
-
-    try:
-        user = request.user.premiumuser
-
+    """ A view to render the checkout success page and create premium user
+    if pp redirect is in session cookies else redirect to home """
+    if 'pp_redirect' in request.session:
         amount = 4.99
         start_date = datetime.now()
         end_date = start_date + relativedelta(years=1)
 
+        PremiumUser.objects.create(
+            user=request.user, start_date=start_date,
+            end_date=end_date, subscription=True)
+        del request.session['pp_redirect']
+
+        # Format date time to date only
         start_date = datetime.strftime(start_date, '%d %B %Y')
         end_date = datetime.strftime(end_date, '%d %B %Y')
 
@@ -98,9 +94,8 @@ def success(request):
             'amount': amount,
         }
         return render(request, 'checkout/checkout_success.html', context)
-    except Exception as e:
-        messages.error(request, 'You cannot visit this link, please purchase a subscription')
-        return redirect(reverse('home'))
+
+    return redirect(reverse('home'))
 
 
 @login_required
