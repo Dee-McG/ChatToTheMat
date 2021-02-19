@@ -1,27 +1,27 @@
 ## Test Cases and Execution Report
 
-![test result screenshot](readme_images\testing_results\1.JPG)
-![test result screenshot](readme_images\testing_results\2.JPG)
-![test result screenshot](readme_images\testing_results\3.JPG)
-![test result screenshot](readme_images\testing_results\4.JPG)
-![test result screenshot](readme_images\testing_results\5.JPG)
-![test result screenshot](readme_images\testing_results\6.JPG)
-![test result screenshot](readme_images\testing_results\7.JPG)
-![test result screenshot](readme_images\testing_results\8.JPG)
-![test result screenshot](readme_images\testing_results\9.JPG)
-![test result screenshot](readme_images\testing_results\10.JPG)
-![test result screenshot](readme_images\testing_results\11.JPG)
-![test result screenshot](readme_images\testing_results\12.JPG)
-![test result screenshot](readme_images\testing_results\13.JPG)
-![test result screenshot](readme_images\testing_results\14.JPG)
-![test result screenshot](readme_images\testing_results\15.JPG)
-![test result screenshot](readme_images\testing_results\16.JPG)
-![test result screenshot](readme_images\testing_results\17.JPG)
-![test result screenshot](readme_images\testing_results\18.JPG)
-![test result screenshot](readme_images\testing_results\19.JPG)
-![test result screenshot](readme_images\testing_results\20.JPG)
+![test result screenshot](readme_images/testing_results/1.JPG)
+![test result screenshot](readme_images/testing_results/2.JPG)
+![test result screenshot](readme_images/testing_results/3.JPG)
+![test result screenshot](readme_images/testing_results/4.JPG)
+![test result screenshot](readme_images/testing_results/5.JPG)
+![test result screenshot](readme_images/testing_results/6.JPG)
+![test result screenshot](readme_images/testing_results/7.JPG)
+![test result screenshot](readme_images/testing_results/8.JPG)
+![test result screenshot](readme_images/testing_results/9.JPG)
+![test result screenshot](readme_images/testing_results/10.JPG)
+![test result screenshot](readme_images/testing_results/11.JPG)
+![test result screenshot](readme_images/testing_results/12.JPG)
+![test result screenshot](readme_images/testing_results/13.JPG)
+![test result screenshot](readme_images/testing_results/14.JPG)
+![test result screenshot](readme_images/testing_results/15.JPG)
+![test result screenshot](readme_images/testing_results/16.JPG)
+![test result screenshot](readme_images/testing_results/17.JPG)
+![test result screenshot](readme_images/testing_results/18.JPG)
+![test result screenshot](readme_images/testing_results/19.JPG)
+![test result screenshot](readme_images/testing_results/20.JPG)
 
-Full downloadable excel document can be found [here](readme_images\test_results_ms4.xlsx)
+Full downloadable excel document can be found [here](readme_images/test_results_ms4.xlsx)
 
 An additional test was done to ensure the check premium status function works as expected. This was performed by updating a previous users premium subscription end date to yesterdays date and then loading the home page. It was then verified the user had been removed from the premium user table.
 
@@ -100,7 +100,7 @@ On iphone, when in the chat rooms, if you click and swipe down to refresh. The m
 
 ## Lighthouse Report
 
-![Lighthouse Report](readme_images\testing_results\lighthouse_report.jpg)
+![Lighthouse Report](readme_images/testing_results/lighthouse_report.jpg)
 
 ***
 
@@ -109,37 +109,37 @@ On iphone, when in the chat rooms, if you click and swipe down to refresh. The m
 #### HTML
 
 **Home:**<br>
-![Home HTML](readme_images\testing_results\home_html.jpg)
+![Home HTML](readme_images/testing_results/home_html.jpg)
 
 **Signup:**<br>
-![Signup HTML](readme_images\testing_results\signup_html.jpg)
+![Signup HTML](readme_images/testing_results/signup_html.jpg)
 
 **Signin:**<br>
-![Signin HTML](readme_images\testing_results\signin_html.jpg)
+![Signin HTML](readme_images/testing_results/signin_html.jpg)
 
 **Contact:**<br>
-![Contact HTML](readme_images\testing_results\contact_html.jpg)
+![Contact HTML](readme_images/testing_results/contact_html.jpg)
 
 **Terms of Service:**<br>
-![TOS HTML](readme_images\testing_results\terms_of_service_html.jpg)
+![TOS HTML](readme_images/testing_results/terms_of_service_html.jpg)
 
 
 #### CSS 
 
 **base.css - profiles.css - checkout.css**<br>
-![css results](readme_images\testing_results\css_validation.jpg)
+![css results](readme_images/testing_results/css_validation.jpg)
 
 
 #### JavaScript
 
 **chat.js:**<br>
 No major errors. Undefined $ is unrecognised jQuery and can be ignored.<br>
-![chat.js](readme_images\testing_results\chat_js.jpg)
+![chat.js](readme_images/testing_results/chat_js.jpg)
 
 **stripe.js**<br>
 
 No major errors. Arrow function warnings can be ignored and undefined variable Stripe is being used, this can also be ignored.<br>
-![stripe.js](readme_images\testing_results\stripe_js.jpg)
+![stripe.js](readme_images/testing_results/stripe_js.jpg)
 
 
 #### PEP8 Compliance
@@ -151,4 +151,4 @@ Errors on lines 144, 147, 150, 153. These pieces of code were auto generated.
 
 10 Unit tests were created to test views / redirects and one form validation on contact form.
 
-![Unit Test Results](readme_images\testing_results\unit_tests.JPG)
+![Unit Test Results](readme_images/testing_results/unit_tests.JPG)
