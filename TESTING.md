@@ -1,29 +1,33 @@
 ## Test Cases and Execution Report
 
-![test result screenshot](readme_images/testing_results/1.JPG)
-![test result screenshot](readme_images/testing_results/2.JPG)
-![test result screenshot](readme_images/testing_results/3.JPG)
-![test result screenshot](readme_images/testing_results/4.JPG)
-![test result screenshot](readme_images/testing_results/5.JPG)
-![test result screenshot](readme_images/testing_results/6.JPG)
-![test result screenshot](readme_images/testing_results/7.JPG)
-![test result screenshot](readme_images/testing_results/8.JPG)
-![test result screenshot](readme_images/testing_results/9.JPG)
-![test result screenshot](readme_images/testing_results/10.JPG)
-![test result screenshot](readme_images/testing_results/11.JPG)
-![test result screenshot](readme_images/testing_results/12.JPG)
-![test result screenshot](readme_images/testing_results/13.JPG)
-![test result screenshot](readme_images/testing_results/14.JPG)
-![test result screenshot](readme_images/testing_results/15.JPG)
-![test result screenshot](readme_images/testing_results/16.JPG)
-![test result screenshot](readme_images/testing_results/17.JPG)
-![test result screenshot](readme_images/testing_results/18.JPG)
-![test result screenshot](readme_images/testing_results/19.JPG)
-![test result screenshot](readme_images/testing_results/20.JPG)
+![test result screenshot](readme_images\testing_results\1.JPG)
+![test result screenshot](readme_images\testing_results\2.JPG)
+![test result screenshot](readme_images\testing_results\3.JPG)
+![test result screenshot](readme_images\testing_results\4.JPG)
+![test result screenshot](readme_images\testing_results\5.JPG)
+![test result screenshot](readme_images\testing_results\6.JPG)
+![test result screenshot](readme_images\testing_results\7.JPG)
+![test result screenshot](readme_images\testing_results\8.JPG)
+![test result screenshot](readme_images\testing_results\9.JPG)
+![test result screenshot](readme_images\testing_results\10.JPG)
+![test result screenshot](readme_images\testing_results\11.JPG)
+![test result screenshot](readme_images\testing_results\12.JPG)
+![test result screenshot](readme_images\testing_results\13.JPG)
+![test result screenshot](readme_images\testing_results\14.JPG)
+![test result screenshot](readme_images\testing_results\15.JPG)
+![test result screenshot](readme_images\testing_results\16.JPG)
+![test result screenshot](readme_images\testing_results\17.JPG)
+![test result screenshot](readme_images\testing_results\18.JPG)
+![test result screenshot](readme_images\testing_results\19.JPG)
+![test result screenshot](readme_images\testing_results\20.JPG)
 
-Full downloadable excel document can be found [here](readme_images/test_results_ms4.xlsx)
+Full downloadable excel document can be found [here](readme_images\test_results_ms4.xlsx)
 
 An additional test was done to ensure the check premium status function works as expected. This was performed by updating a previous users premium subscription end date to yesterdays date and then loading the home page. It was then verified the user had been removed from the premium user table.
+
+Testing was also permformed on the chat rooms to ensure they only display 20 messages and that the oldest messages are deleted.
+
+***
 
 ## Issues and Resolutions to issues found during development testing
 
@@ -34,7 +38,6 @@ Admin Panel wasn't displaying for superusers. This was caused by the code `if us
 **Resolution:**
 
 This was resolved by updating it to `request.if user.is_superuser`.
-<hr>
 
 **Issue:**
 
@@ -43,7 +46,6 @@ This was resolved by updating it to `request.if user.is_superuser`.
 **Resolution:**
 
 This was resolved by setting a max height and width and adding the img-fluid class.
-<hr> 
 
 **Issue:**
 
@@ -52,7 +54,6 @@ Chat home direct was causing an error due to refactored code and it not being up
 **Resolution:**
 
 This was resolved by adding correct anchor link url plus added redirect to view.
-<hr>
 
 **Issue:**
 
@@ -61,7 +62,8 @@ User was not correctly importing on profiles and chat room pages due to bad impo
 **Resolution:**
 
 This was resolved by updating `from .models import User` to `from django.contrib.auth.models import User`.
-<hr>
+
+***
 
 ## Issues and Resolutions to issues found during testing of deployed website
 
@@ -93,6 +95,8 @@ FIX- This was fixed by creating a session cookie during checkout and only loadin
 505 error page Logo is not displaying or the main image. This issue has not yet been resolved but the main image has been temporarily removed.
 
 On iphone, when in the chat rooms, if you click and swipe down to refresh. The menu icon does not always appear. If you repeat action a few times, it does reappear. I have yet to resolve this issue.
+
+***
 
 ## Lighthouse Report
 
@@ -142,3 +146,9 @@ No major errors. Arrow function warnings can be ignored and undefined variable S
 
 All files pass except settings.py file: <br>
 Errors on lines 144, 147, 150, 153. These pieces of code were auto generated.
+
+## Unit Tests
+
+10 Unit tests were created to test views / redirects and one form validation on contact form.
+
+![Unit Test Results](readme_images\testing_results\unit_tests.JPG)
