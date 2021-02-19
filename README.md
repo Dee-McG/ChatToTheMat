@@ -161,6 +161,7 @@ Acceptance Criteria:
 Implementation:
 
 Stripe payment functionality will be implemented to allow users to pay for a premium subscription package.
+A function will also be implemented that checks preimum subscription end dates upon loading of the home or terms of service page. If the end date of their subscription is later than the current datetime, it will remove the user from the premium table.
 
 User Story:
 
@@ -311,6 +312,8 @@ Premium users custom profile pictures are added by url and rendered into an imag
 
 ### Differences to Design
 The footer content was implemented different to the original design. Wire frames have the Terms of Service in the center above the copyright information but this caused a lot of empty space and the footer height too big so it was implemented to sit at the right side of the page.
+
+500 Page image was removed due to an error with images not loading on the 500 error page. Content is displayed with a link to home page though. This bug has been documented in the TESTING.md file. 
 ****
 ## Features
 
@@ -328,6 +331,8 @@ Admin delete functionality on chat messages.
 During the next phase of development, the AWS set up will be utilized to allow users to upload custom images to their profile and attaching images via private messaging.
 
 Form refactoring to allow admins to search via name instead of drop down selection. Same for private messaging.
+
+Real time chat functionality will be added in the next development cycle. Currently users need to refresh in order for the chat to update.
 
 ****
 ## Technologies
