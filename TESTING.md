@@ -109,25 +109,25 @@ On iphone, when in the chat rooms, if you click and swipe down to refresh. The m
 #### HTML
 
 **Home:**<br>
-![Home HTML](readme_images/testing_results/home_html.jpg)
+![Home HTML](readme_images/testing_results/home_html.JPG)
 
 **Signup:**<br>
-![Signup HTML](readme_images/testing_results/signup_html.jpg)
+![Signup HTML](readme_images/testing_results/signup_html.JPG)
 
 **Signin:**<br>
-![Signin HTML](readme_images/testing_results/signin_html.jpg)
+![Signin HTML](readme_images/testing_results/signin_html.JPG)
 
 **Contact:**<br>
-![Contact HTML](readme_images/testing_results/contact_html.jpg)
+![Contact HTML](readme_images/testing_results/contact_html.JPG)
 
 **Terms of Service:**<br>
-![TOS HTML](readme_images/testing_results/terms_of_service_html.jpg)
+![TOS HTML](readme_images/testing_results/terms_of_service_html.JPG)
 
 
 #### CSS 
 
 **base.css - profiles.css - checkout.css**<br>
-![css results](readme_images/testing_results/css_validation.jpg)
+![css results](readme_images/testing_results/css_validation.JPGS)
 
 
 #### JavaScript
