@@ -311,7 +311,9 @@ rest of the websites content uses the 'Roboto' font.
 Premium users custom profile pictures are added by url and rendered into an image tag. I do not own these images and did not upload them into the site.
 
 ### Differences to Design
-The footer content was implemented different to the original design. Wire frames have the Terms of Service in the center above the copyright information but this caused a lot of empty space and the footer height too big so it was implemented to sit at the right side of the page.
+The footer content was implemented different to the original design. Wire frames have the Terms of Service in the center above the copyright information. On a mobile this was implemented with the Terms of Service under the copyright and on larger devices, the terms of service is on the right side of the footer.
+
+On the profile page, the buttons on the wireframe are side by side on the mobile version but they were implemented to be on their own lines as the 3 buttons do not sit properly side by side as they are too large.
 
 500 Page image was removed due to an error with images not loading on the 500 error page. Content is displayed with a link to home page though. This bug has been documented in the TESTING.md file. 
 ****

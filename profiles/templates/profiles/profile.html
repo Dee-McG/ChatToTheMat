@@ -35,15 +35,21 @@
                 <!-- Edit Profile and Delete Profile displays if user is looking at their own profile -->
                 {% if request.user.username == user %}
                     <hr>
-                    <div class="text-center">
-                        {% if request.user.is_superuser %}
-                            <a href="{% url 'admin_panel' %}" class="anchors submit-btn px-2">Admin Panel</a>
-                        {% endif %}
-                        <a href="{% url 'edit_profile' request.user.username %}" class="anchors submit-btn px-2">Edit Profile</a>
-                        <!-- Button trigger modal -->
-                        <a class="submit-btn anchors px-2" data-toggle="modal" data-target="#delete_modal">
-                            Delete Profile
-                        </a>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 text-center">
+                            {% if request.user.is_superuser %}
+                                <a href="{% url 'admin_panel' %}" class="anchors submit-btn px-2">Admin Panel</a>
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-12 col-md-4 text-center">
+                            <a href="{% url 'edit_profile' request.user.username %}" class="anchors submit-btn px-2">Edit Profile</a>
+                        </div>
+                            <!-- Button trigger modal -->
+                        <div class="col-sm-12 col-md-4 text-center">
+                            <a class="submit-btn anchors px-2" data-toggle="modal" data-target="#delete_modal">
+                                Delete Profile
+                            </a>
+                        </div>
                     </div>
                 {% endif %}
             </div>
