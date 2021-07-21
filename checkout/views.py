@@ -61,12 +61,14 @@ def create_checkout_session(request):
             request.session['pp_redirect'] = True
             return JsonResponse({'sessionId': checkout_session['id']})
         except Exception as e:
+            del request.session['pp_redirect']
             return JsonResponse({'error': str(e)})
 
 
 @login_required
 def cancel(request):
     """ A view to render checkout error page """
+    del request.session['pp_redirect']
     return render(request, 'checkout/checkout_error.html')
 
 
