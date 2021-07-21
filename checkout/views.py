@@ -20,10 +20,13 @@ def checkout(request):
     """ A view to return the checkout page
     redirect to subscription active if user already
     has a premium subscription """
+    if 'pp_redirect' in request.session:
+        del request.session['pp_redirect']
     try:
         request.user.premiumuser
         return redirect(reverse('subscription_active'))
     except Exception as e:
+    
         return render(request, 'checkout/checkout.html')
 
 
